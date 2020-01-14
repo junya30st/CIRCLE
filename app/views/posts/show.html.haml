@@ -1,0 +1,35 @@
+.all
+  .header
+    .header--logo
+      = link_to 'CIRCLE', root_path
+    .header--menu
+      %ul.header--menu__lists
+        %li.header--menu__lists--list
+          = link_to 'Top', root_path
+        %li.header--menu__lists--list group
+        %li.header--menu__lists--list category
+        - if user_signed_in?
+          %li.header--menu__lists--list my-page
+          = link_to destroy_user_session_path, class: "logout-btn", method: :delete do
+            .header--menu__lists--list
+              sign-out
+        - else
+          = link_to 'サインイン', user_session_path, class: 'li header--menu__lists--list'
+
+  .show-wrapper
+    .show-wrapper__container
+      .show-wrapper__container__title
+        = @post.title
+      .show-wrapper__container__lists
+        .show-wrapper__container__lists--image
+          = image_tag "#{@post.image}", class:'show-image'
+        .show-wrapper__container__lists--text
+          = simple_format(@post.text)
+  
+  .footer
+    .footer__copy
+      %small.copyright
+      Copyright &copy;
+      = succeed "." do
+        %span#copyright_year
+        2019 "CIRCLE"

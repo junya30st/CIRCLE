@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis:200&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Oswald:500&display=swap');
+@import 'posts';
+@import 'signin';
+@import 'new';
+@import 'show';
+@import 'user_show';
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*:focus{
+  outline: none;
+}
+
+a{
+  display: block;
+  text-decoration: none;
+  color: black;
+}

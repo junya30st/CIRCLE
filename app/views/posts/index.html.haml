@@ -1,0 +1,84 @@
+.all
+  .header
+    .header--logo
+      = link_to 'CIRCLE', root_path
+    .header--menu
+      %ul.header--menu__lists
+        %li.header--menu__lists--list Top
+        %li.header--menu__lists--list group
+        %li.header--menu__lists--list category
+        - if user_signed_in?
+          = link_to user_path(current_user) do
+            .header--menu__lists--list
+              my-page
+          = link_to destroy_user_session_path, class: "logout-btn", method: :delete do
+            .header--menu__lists--list
+              sign-out
+        - else
+          = link_to 'サインイン', user_session_path, class: 'li header--menu__lists--list'
+
+  - unless user_signed_in?
+    .signin-wrapper
+    = form_with url: posts_path, local: true, method: :post do |f|
+      .signin-wrapper__form
+        .signin-wrapper__form__box
+          .signin-wrapper__form__box--name
+            %label{class:'label-signin'} Nickname
+            %br
+            %span{class:'form-must'} 
+            = f.text_field :nickname, class:'signin-form', placeholder:'5文字以上(登録後に変更可能です)'
+          .signin-wrapper__form__box--email
+            %label{class:'label-signin'} E-mail
+            %br
+            %span{class:'form-must'} 
+            = f.email_field :email, class:'signin-form', placeholder:'アドレスを入力'
+          .signin-wrapper__form__box--password
+            %label{class:'label-signin'} Password
+            %br
+            %span{class:'form-must'}
+            = f.password_field :password, class:'signin-form', placeholder:'8文字以上'
+          .signin-wrapper__form__box--password
+            %label{class:'label-signin'} Password
+            %br
+            %span{class:'form-must'}
+            = f.password_field :password_confirmation, class:'signin-form', placeholder:'8文字以上(確認)'
+          .signin-wrapper__form__box--button
+            = f.submit '登録して進む', class: 'signin-button'
+
+  .section-index
+    .section-index__title 
+      .section-index__title--post Post
+      .section-index__title--new
+        = link_to 'New-post', new_post_path,class:'new-post-link'
+    .section-index__wrap
+      %ul.section-index__wrap__contents
+        - @posts.each do |post|
+          %li.section-index__wrap__contents__content
+            .section-index__wrap__contents__content--image
+              = image_tag "#{post.image}", class:'section-index__wrap__contents__content--image'
+            .section-index__wrap__contents__content--script
+              .section-index__wrap__contents__content--script--title
+                = link_to "#{post.title}", post_path(post)
+              .section-index__wrap__contents__content--script--text
+                = post.text
+
+  .section-group
+    .section-group__title
+      .section-group__title--group Group
+    .section-group__wrap
+      .section-group__wrap__contents
+        .section-group__wrap__contents--name
+          エンジニア集まれ
+        .section-group__wrap__contents--category
+          開発
+        %br
+        .section-group__wrap__contents--member
+          member: いしい たかはし おの ちゃん
+
+  .footer
+    .footer__copy
+      %small.copyright
+      Copyright &copy;
+      = succeed "." do
+        %span#copyright_year
+        2019 "CIRCLE"

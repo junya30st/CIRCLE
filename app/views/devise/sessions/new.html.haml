@@ -1,0 +1,40 @@
+.signin-wrapper
+= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  .signin-wrapper__form
+    .signin-wrapper__form--name
+      %label{class:'label-signin'} E-mail
+      %br
+      %span{class:'form-must'} 
+      = f.email_field :email, class:'signin-form', placeholder:'アドレスを入力'
+    .signin-wrapper__form--password
+      %label{class:'label-signin'} Password
+      %br
+      %span{class:'form-must'}
+      = f.password_field :password, class:'signin-form', placeholder:'8文字以上'
+    .signin-wrapper__form--password
+      %label{class:'label-signin'} Password
+      %br
+      %span{class:'form-must'}
+      = f.password_field :password_confirmation, class:'signin-form', placeholder:'8文字以上(確認)'
+    .signin-wrapper__form--submit
+      = f.submit '登録して進む', class: 'signin-button'
+
+
+
+-# %h2 Log in
+-# = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+-#   .field
+-#     = f.label :email
+-#     %br/
+-#     = f.email_field :email, autofocus: true, autocomplete: "email"
+-#   .field
+-#     = f.label :password
+-#     %br/
+-#     = f.password_field :password, autocomplete: "current-password"
+-#   - if devise_mapping.rememberable?
+-#     .field
+-#       = f.check_box :remember_me
+-#       = f.label :remember_me
+-#   .actions
+-#     = f.submit "Log in"
+-# = render "devise/shared/links"

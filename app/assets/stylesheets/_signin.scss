@@ -1,0 +1,47 @@
+.signin-wrapper{
+  background-image: url(wall-white.jpg);
+  height: 510px;
+  width: 100vw;
+  position: absolute;
+  opacity: 0.4;
+  display: block;
+
+  &__form{
+    position: relative;
+    display: flex;
+    margin: 0 auto;
+    padding: 20px 20px;
+
+    &__box{
+      margin: 0 auto;
+      
+      &--button{
+        text-align: center;
+        margin: 0 auto;
+
+      }
+    }
+  }
+}
+
+.label-signin{
+  font-family: 'Dosis', sans-serif;
+  font-size: 40px;
+}
+
+.signin-form{
+  width: 200px;
+  height: 40px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.signin-button{
+
+  background: gray;
+  height: 40px;
+  width: 100px;
+  border-radius: 4px;
+  margin-top: 30px;
+  cursor: pointer;
+}

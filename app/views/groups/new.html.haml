@@ -1,0 +1,47 @@
+.all
+  .header
+    .header--logo
+      = link_to 'CIRCLE', root_path
+    .header--menu
+      %ul.header--menu__lists
+        %li.header--menu__lists--list Top
+        %li.header--menu__lists--list group
+        %li.header--menu__lists--list category
+        - if user_signed_in?
+          %li.header--menu__lists--list my-page
+          = link_to destroy_user_session_path, class: "logout-btn", method: :delete do
+            .header--menu__lists--list
+              sign-out
+        - else
+          = link_to 'サインイン', user_session_path, class: 'li header--menu__lists--list'
+
+  = form_with url: root_path, local: true do |f|
+    .group-create
+      .group-create__wrapper
+        .group-create__wrapper__form
+          .group-create__wrapper__form--title
+            .group-create__wrapper__form--title--label
+              = f.label :グループ名, class: 'group-label'
+            .group-create__wrapper__form--title--name
+              = f.text_field :name, placeholder: 'グループ名を入力してください', class: 'group-name'
+          .group-create__wrapper__form--member
+
+
+
+  .group-main
+    .group-main_title
+    %ul.group-main_lists
+      %li.group-main_list
+        .group-main_list_name
+          = @group.name
+        .group-main_list_member
+          - @group.users.each do |user|
+            = user.nickname
+
+  .footer
+    .footer__copy
+      %small.copyright
+      Copyright &copy;
+      = succeed "." do
+        %span#copyright_year
+        2019 "CIRCLE"

@@ -1,0 +1,72 @@
+.post-main{
+  background: url("wall-white.jpg");
+  background-size: cover;
+  height: calc(100vh - 120px);
+  width:100vw;
+
+  &__form{
+    height: 100%;
+    background-color: rgba($color: white, $alpha: 0.4);
+    font-family: 'Dosis', sans-serif;
+    letter-spacing: 3px;
+    font-weight: bold;
+    padding-top: 20px;
+
+    &--name{
+      width: 50%;
+      margin: 0 auto;
+      font-size: 50px;
+      letter-spacing: 3px;
+    }
+    &--box{
+      width: 42%;
+      margin: 0 auto;
+      padding-top:20px;
+      font-size: 30px;
+
+      &--title{
+        margin-top: 10px;
+      }
+      &--image{
+        margin-top: 10px;
+      }
+      &--text{
+        margin-top: 15px;
+      }
+      &--button{
+        right: 0;
+      }
+    }
+  }
+}
+
+.post-title{
+  width: 100%;
+  height: 40px;
+  border: 1px solid gray;  
+  border-radius: 5px;
+  cursor: text;
+  font-size: 14px;
+  letter-spacing: 2px;
+  padding: 0 10px;
+}
+
+.post-image{
+  width: 40%;
+}
+
+.post-text{
+  width: 100%;
+  height: 200px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  font-size: 14px;
+  letter-spacing: 2px;
+  padding: 10px;
+  resize: none;
+  cursor: text;
+}
+
+.post-submit{
+
+}

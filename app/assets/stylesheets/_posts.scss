@@ -1,0 +1,166 @@
+.all{
+  height: 100%;
+  width: 100vw;
+
+  .header{
+    width: 100vw;
+    height: 120px;
+    justify-content: space-between;
+    display: flex;
+
+    &--logo{
+      font-family: 'Oswald', sans-serif;
+      letter-spacing: 1px;
+      font-size: 50px;
+      margin: 30px 0 0 50px;
+    }
+
+    &--menu{
+      margin: 50px 30px 0 0;
+
+      &__lists{
+        display: flex;
+        font-family: 'Dosis', sans-serif;
+        letter-spacing: 1px;
+
+        &--list{
+          
+          font-size: 18px;
+          list-style: none;
+          margin-right: 15px;
+          padding: 10px;
+          background: white;
+          color: black;
+
+        }
+        &--list:hover{
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}
+
+.section-index{
+  width: 100%;
+  height: 100%;
+
+  &__title{
+    font-family: 'Dosis', sans-serif;
+    width: 80%;
+    margin: 0 auto;
+    padding: 30px 10px;
+    display: flex;
+    justify-content: space-between;
+    &--post{
+      width: 60px;
+      font-size: 40px;
+      border-bottom: 1px solid black;
+    }
+    &--new{
+      font-size: 20px;
+      top: 10px;
+    }
+    &--new:hover{
+      cursor: pointer;
+    }
+  }
+  &__wrap{
+    width: 80%;
+    margin: 0 auto;
+
+    &__contents{
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+
+      &__content{
+        padding: 0 10px;
+        width: 25%;
+        height: 420px;
+        list-style: none;
+        
+        &--image{
+          object-fit: cover;
+          width: 100%;
+        }
+
+        &--script{
+          padding: 0 10px;
+          &--title{
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+          }
+          &--title:hover{
+            opacity: 0.5;
+          }
+
+          &--text{
+            margin-top: 8px;
+            font-size: 10px;
+            color: rgb(133, 128, 128);
+            word-wrap: break-word;
+          }
+        }
+      }
+    }
+  }
+}
+
+.section-group{
+  width: 100vw;
+  height: 100%;
+  &__title{
+    font-family: 'Dosis', sans-serif;
+    width: 80%;
+    margin: 0 auto;
+    padding: 30px 10px;
+    &--group{
+        width: 60px;
+        font-size: 40px;
+        border-bottom: 1px solid black;
+    }
+  }
+  &__wrap{
+    width: 80%;
+    margin: 0 auto;
+    padding: 30px 10px;
+    &__contents{
+      width: 50%;
+      padding: 15px;
+      background: rgb(241, 237, 237);
+      font-size: 8px;
+      &--name{
+        float: left;
+        margin-right: 20px;
+        font-size: 16px;
+      }
+      &--category{
+        float: left;
+      }
+      &--member{
+        clear: both;
+      }
+    }
+  }
+}
+
+.footer{
+  width: 100vw;
+  height: 80px;
+  text-align: center;
+  &__copy{
+    padding-top:40px;
+    height: 80px;
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    font-size:10px;
+  }
+}
+
+.index-img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}

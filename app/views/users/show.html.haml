@@ -1,0 +1,51 @@
+.all
+  .header
+    .header--logo
+      = link_to 'CIRCLE', root_path
+    .header--menu
+      %ul.header--menu__lists
+        %li.header--menu__lists--list Top
+        %li.header--menu__lists--list group
+        %li.header--menu__lists--list category
+        - if user_signed_in?
+          %li.header--menu__lists--list my-page
+          = link_to destroy_user_session_path, class: "logout-btn", method: :delete do
+            .header--menu__lists--list
+              sign-out
+        - else
+          = link_to 'サインイン', user_session_path, class: 'li header--menu__lists--list'
+
+  .wrap-mypage
+    .wrap-mypage-main
+      .wrap-mypage-main__profile
+        .wrap-mypage-main__profile__left
+          .wrap-mypage-main__profile__left--name
+            Junya
+          .wrap-mypage-main__profile__left--category
+            プログラミング / 英語
+        .wrap-mypage-main__profile__right
+          .wrap-mypage-main__profile__right--photo
+            写真
+      
+      .wrap-mypage-main__text
+        .wrap-mypage-main__text--box
+          プログラミング初心者です。まだまだわからない事だらけですが、一つ一つ学んで、それを手段として様々なビジネスに関わることができればと考えています。みなさまよろしくお願いいたします。
+
+      
+      .wrap-mypage-main__wrapper
+        .wrap-mypage-main__wrapper__works
+          - @posts.each do |post|
+            .wrap-mypage-main__wrapper__works__box
+              .wrap-mypage-main__wrapper__works__box--title
+              .wrap-mypage-main__wrapper__works__box--image
+              .wrap-mypage-main__wrapper__works__box--content
+
+
+
+  .footer
+    .footer__copy
+      %small.copyright
+      Copyright &copy;
+      = succeed "." do
+        %span#copyright_year
+        2019 "CIRCLE"
