@@ -15,35 +15,8 @@
             .header--menu__lists--list
               sign-out
         - else
-          = link_to 'サインイン', user_session_path, class: 'li header--menu__lists--list'
+          = link_to 'sign-in', user_session_path, class: 'li header--menu__lists--list'
 
-  - unless user_signed_in?
-    .signin-wrapper
-    = form_with url: posts_path, local: true, method: :post do |f|
-      .signin-wrapper__form
-        .signin-wrapper__form__box
-          .signin-wrapper__form__box--name
-            %label{class:'label-signin'} Nickname
-            %br
-            %span{class:'form-must'} 
-            = f.text_field :nickname, class:'signin-form', placeholder:'5文字以上(登録後に変更可能です)'
-          .signin-wrapper__form__box--email
-            %label{class:'label-signin'} E-mail
-            %br
-            %span{class:'form-must'} 
-            = f.email_field :email, class:'signin-form', placeholder:'アドレスを入力'
-          .signin-wrapper__form__box--password
-            %label{class:'label-signin'} Password
-            %br
-            %span{class:'form-must'}
-            = f.password_field :password, class:'signin-form', placeholder:'8文字以上'
-          .signin-wrapper__form__box--password
-            %label{class:'label-signin'} Password
-            %br
-            %span{class:'form-must'}
-            = f.password_field :password_confirmation, class:'signin-form', placeholder:'8文字以上(確認)'
-          .signin-wrapper__form__box--button
-            = f.submit '登録して進む', class: 'signin-button'
 
   .section-index
     .section-index__title 
