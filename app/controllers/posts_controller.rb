@@ -1,20 +1,25 @@
 class PostsController < ApplicationController
 
-  def user
-    user = User.new(user_params)
-    user.save
-    sign_in User.find(user.id) unless user_signed_in?
-  end
+  # def 
+  #   user = User.new(user_params)
+  #   user.save
+  #   sign_in User.find(user.id) unless user_signed_in?
+  # end
 
   def index
     @posts = Post.all.order('id DESC')
+    user = User.new(user_params)
+
+    if user.save
+      sign_in User.find(user.id) unless user_signed_in?
+    end
   end
 
   def new
     @post = Post.new
   end
 
-  def create
+  def user
     @post = Post.create(post_params)
     redirect_to root_path
   end

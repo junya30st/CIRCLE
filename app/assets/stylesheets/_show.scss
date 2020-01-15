@@ -9,9 +9,19 @@
     background-color: rgba($color: white, $alpha: 0.4);
 
     &__title{
-      font-size: 30px;
-      font-weight: bold;
       margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      &--name{
+        font-weight: bold;
+        font-size: 30px;
+        width: 50%;
+      }
+      &--user{
+        bottom: 0;
+        text-align: right;
+        
+      }
     }
     &__lists{
       width: 80%;

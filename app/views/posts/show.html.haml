@@ -19,7 +19,12 @@
   .show-wrapper
     .show-wrapper__container
       .show-wrapper__container__title
-        = @post.title
+        .show-wrapper__container__title--name
+          = @post.title
+        = link_to user_path(@post.user.id) do
+          .show-wrapper__container__title--user 
+            投稿者 :
+            = @post.user.nickname
       .show-wrapper__container__lists
         .show-wrapper__container__lists--image
           = image_tag "#{@post.image}", class:'show-image'
