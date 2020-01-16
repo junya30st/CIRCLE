@@ -20,7 +20,7 @@
       .wrap-mypage-main__profile
         .wrap-mypage-main__profile__left
           .wrap-mypage-main__profile__left--name
-            Junya
+            = @user.nickname
           .wrap-mypage-main__profile__left--category
             プログラミング / 英語
         .wrap-mypage-main__profile__right
@@ -33,12 +33,19 @@
 
       
       .wrap-mypage-main__wrapper
-        .wrap-mypage-main__wrapper__works
-          - @posts.each do |post|
-            .wrap-mypage-main__wrapper__works__box
-              .wrap-mypage-main__wrapper__works__box--title
+        %ul.wrap-mypage-main__wrapper__works
+          - @post.each do |post|
+            %li.wrap-mypage-main__wrapper__works__box
               .wrap-mypage-main__wrapper__works__box--image
-              .wrap-mypage-main__wrapper__works__box--content
+                = image_tag "#{post.image}", class: 'wrap-mypage-main__wrapper__works__box--image'
+              .wrap-mypage-main__wrapper__works__box--script
+                .wrap-mypage-main__wrapper__works__box--script--user
+                  投稿者 :
+                  = post.user.nickname
+                .wrap-mypage-main__wrapper__works__box--script--title
+                  = post.title
+                .wrap-mypage-main__wrapper__works__box--script--content
+                  = post.text
 
 
 

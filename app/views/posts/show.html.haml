@@ -9,7 +9,9 @@
         %li.header--menu__lists--list group
         %li.header--menu__lists--list category
         - if user_signed_in?
-          %li.header--menu__lists--list my-page
+          = link_to user_path(current_user) do
+            .header--menu__lists--list
+              my-page
           = link_to destroy_user_session_path, class: "logout-btn", method: :delete do
             .header--menu__lists--list
               sign-out

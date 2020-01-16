@@ -30,6 +30,10 @@
             .section-index__wrap__contents__content--image
               = image_tag "#{post.image}", class:'section-index__wrap__contents__content--image'
             .section-index__wrap__contents__content--script
+              = link_to user_path(post.user.id) do
+                .section-index__wrap__contents__content--script--user
+                  投稿者 :
+                  = post.user.nickname
               .section-index__wrap__contents__content--script--title
                 = link_to "#{post.title}", post_path(post)
               .section-index__wrap__contents__content--script--text

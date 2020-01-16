@@ -87,15 +87,20 @@
 
         &--script{
           padding: 0 10px;
+          &--user{
+            font-size: 12px;
+          }
+          &--user:hover{
+            opacity: 0.5;
+          }
           &--title{
-            margin-top: 10px;
+            margin-top: 4px;
             font-size: 18px;
             font-weight: bold;
           }
           &--title:hover{
             opacity: 0.5;
           }
-
           &--text{
             margin-top: 8px;
             font-size: 10px;
