@@ -4,8 +4,12 @@
       = link_to 'CIRCLE', root_path
     .header--menu
       %ul.header--menu__lists
-        %li.header--menu__lists--list Top
-        %li.header--menu__lists--list group
+        = link_to root_path do
+          .header--menu__lists--list
+            Top
+        = link_to groups_path do
+          .header--menu__lists--list
+            group
         %li.header--menu__lists--list category
         - if user_signed_in?
           = link_to user_path(current_user) do
@@ -17,42 +21,48 @@
         - else
           = link_to 'sign-in', user_session_path, class: 'li header--menu__lists--list'
 
+  .section-all
+    .section-all--index
+      .section-all--index__title 
+        .section-all--index__title--post Post
+        .section-all--index__title--new
+          = link_to 'New-post', new_post_path,class:'new-post-link'
+      .section-all--index__wrap
+        %ul.section-all--index__wrap__contents
+          - @posts.each do |post|
+            %li.section-all--index__wrap__contents__content
+              .section-all--index__wrap__contents__content--image
+                = image_tag "#{post.image}", class:'section-all--index__wrap__contents__content--image'
+              .section-all--index__wrap__contents__content--script
+                = link_to user_path(post.user.id) do
+                  .section-all--index__wrap__contents__content--script--user
+                    投稿者 :
+                    = post.user.nickname
+                  .section-all--index__wrap__contents__content--script--user
+                    カテゴリ :
+                .section-all--index__wrap__contents__content--script--title
+                  = link_to "#{post.title}", post_path(post)
+                .section-all--index__wrap__contents__content--script--text
+                  = truncate(post.text, length: 100)
 
-  .section-index
-    .section-index__title 
-      .section-index__title--post Post
-      .section-index__title--new
-        = link_to 'New-post', new_post_path,class:'new-post-link'
-    .section-index__wrap
-      %ul.section-index__wrap__contents
-        - @posts.each do |post|
-          %li.section-index__wrap__contents__content
-            .section-index__wrap__contents__content--image
-              = image_tag "#{post.image}", class:'section-index__wrap__contents__content--image'
-            .section-index__wrap__contents__content--script
-              = link_to user_path(post.user.id) do
-                .section-index__wrap__contents__content--script--user
-                  投稿者 :
-                  = post.user.nickname
-                .section-index__wrap__contents__content--script--user
-                  カテゴリ :
-              .section-index__wrap__contents__content--script--title
-                = link_to "#{post.title}", post_path(post)
-              .section-index__wrap__contents__content--script--text
-                = post.text
+      -# - @groups.each do |group|
+      -#   .section-group
+      -#     .section-group__title
+      -#       .section-group__title--group Group
+      -#     .section-group__wrap
+      -#       .section-group__wrap__contents
+      -#         .section-group__wrap__contents--name
+      -#           グループ名：
+      -#           = group.name
+      -#         .section-group__wrap__contents--category
+      -#           開発
+      -#         %br
+      -#         .section-group__wrap__contents--member
+      -#           member:
+          
+    .section-all__category
+      .section-all__category
 
-  .section-group
-    .section-group__title
-      .section-group__title--group Group
-    .section-group__wrap
-      .section-group__wrap__contents
-        .section-group__wrap__contents--name
-          エンジニア集まれ
-        .section-group__wrap__contents--category
-          開発
-        %br
-        .section-group__wrap__contents--member
-          member: いしい たかはし おの ちゃん
 
   .footer
     .footer__copy
