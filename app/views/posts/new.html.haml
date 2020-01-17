@@ -4,18 +4,22 @@
       = link_to 'CIRCLE', root_path
     .header--menu
       %ul.header--menu__lists
-        %li.header--menu__lists--list
-          = link_to 'Top', root_path
-        %li.header--menu__lists--list group
+        = link_to root_path do
+          .header--menu__lists--list
+            Top
+        = link_to groups_path do
+          .header--menu__lists--list
+            group
         %li.header--menu__lists--list category
         - if user_signed_in?
-          %li.header--menu__lists--list my-page
+          = link_to user_path(current_user) do
+            .header--menu__lists--list
+              my-page
           = link_to destroy_user_session_path, class: "logout-btn", method: :delete do
             .header--menu__lists--list
               sign-out
-            
         - else
-          = link_to 'サインイン', user_session_path, class: 'li header--menu__lists--list'
+          = link_to 'sign-in', user_session_path, class: 'li header--menu__lists--list'
 
 = form_for @post do |f|
   .post-main

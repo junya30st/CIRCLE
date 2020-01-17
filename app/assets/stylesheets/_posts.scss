@@ -41,71 +41,75 @@
   }
 }
 
-.section-index{
-  width: 100%;
-  height: 100%;
+.section-all{
+  display: flex;
+  
+  &--index{
+    width: 70%;
+    height: 100%;
 
-  &__title{
-    font-family: 'Dosis', sans-serif;
-    width: 80%;
-    margin: 0 auto;
-    padding: 30px 10px;
-    display: flex;
-    justify-content: space-between;
-    &--post{
-      width: 60px;
-      font-size: 40px;
-      border-bottom: 1px solid black;
-    }
-    &--new{
-      font-size: 20px;
-      top: 10px;
-    }
-    &--new:hover{
-      cursor: pointer;
-    }
-  }
-  &__wrap{
-    width: 80%;
-    margin: 0 auto;
-
-    &__contents{
-      padding: 0;
+    &__title{
+      font-family: 'Dosis', sans-serif;
+      width: 90%;
+      margin: 0 auto;
+      padding: 30px 10px;
       display: flex;
-      flex-wrap: wrap;
+      justify-content: space-between;
+      &--post{
+        width: 60px;
+        font-size: 40px;
+        border-bottom: 1px solid black;
+      }
+      &--new{
+        font-size: 20px;
+        top: 10px;
+      }
+      &--new:hover{
+        cursor: pointer;
+      }
+    }
+    &__wrap{
+      width: 80%;
+      margin: 0 auto;
 
-      &__content{
-        padding: 0 10px;
-        width: 25%;
-        height: 420px;
-        list-style: none;
-        
-        &--image{
-          object-fit: cover;
-          width: 100%;
-        }
+      &__contents{
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
 
-        &--script{
+        &__content{
           padding: 0 10px;
-          &--user{
-            font-size: 12px;
+          width: 25%;
+          height: 420px;
+          list-style: none;
+          
+          &--image{
+            object-fit: cover;
+            width: 100%;
           }
-          &--user:hover{
-            opacity: 0.5;
-          }
-          &--title{
-            margin-top: 4px;
-            font-size: 18px;
-            font-weight: bold;
-          }
-          &--title:hover{
-            opacity: 0.5;
-          }
-          &--text{
-            margin-top: 8px;
-            font-size: 10px;
-            color: rgb(133, 128, 128);
-            word-wrap: break-word;
+
+          &--script{
+            padding: 0 10px;
+            &--user{
+              font-size: 12px;
+            }
+            &--user:hover{
+              opacity: 0.5;
+            }
+            &--title{
+              margin-top: 4px;
+              font-size: 18px;
+              font-weight: bold;
+            }
+            &--title:hover{
+              opacity: 0.5;
+            }
+            &--text{
+              margin-top: 8px;
+              font-size: 10px;
+              color: rgb(133, 128, 128);
+              word-wrap: break-word;
+            }
           }
         }
       }
@@ -144,8 +148,13 @@
       &--category{
         float: left;
       }
-      &--member{
+      &--members{
         clear: both;
+        display: flex;
+
+        &--member{
+          letter-spacing: 2px;
+        }
       }
     }
   }

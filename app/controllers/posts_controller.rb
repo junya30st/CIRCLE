@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all.order('id DESC')
     user = User.new(user_params)
-
+    
     if user.save
       sign_in User.find(user.id) unless user_signed_in?
     end

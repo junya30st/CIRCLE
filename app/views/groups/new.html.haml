@@ -15,7 +15,7 @@
         - else
           = link_to 'サインイン', user_session_path, class: 'li header--menu__lists--list'
 
-  = form_with url: root_path, local: true do |f|
+  = form_with url: '/groups', local: true, method: :post do |f|
     .group-create
       .group-create__wrapper
         .group-create__wrapper__form
@@ -25,6 +25,13 @@
             .group-create__wrapper__form--title--name
               = f.text_field :name, placeholder: 'グループ名を入力してください', class: 'group-name'
           .group-create__wrapper__form--member
+            = f.label :メンバー, class: '#'
+            = f.collection_check_boxes :user_ids, User.all, :id, :nickname, include_hidden: false do |c|
+              = c.check_box
+              = c.label{c.text}
+          .group-create__wrapper__form--submit
+            = f.submit 'グループを作成する'
+
 
 
 
