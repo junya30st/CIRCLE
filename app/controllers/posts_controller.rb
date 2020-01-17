@@ -17,6 +17,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @categories = Category.all
   end
 
   def create
@@ -39,6 +40,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :image,:text).merge(user_id: current_user.id)
+    params.require(:post).permit(:title, :image, :text, category_ids: []).merge(user_id: current_user.id)
   end
 end

@@ -22,10 +22,17 @@
       width: 42%;
       margin: 0 auto;
       padding-top:20px;
-      font-size: 30px;
+      font-size: 14px;
 
       &--title{
         margin-top: 10px;
+      }
+      &--category{
+        margin-top: 10px;
+        font-size: 14px;
+        &--check{
+          margin-top: 10px;
+        }
       }
       &--image{
         margin-top: 10px;
@@ -69,4 +76,8 @@
 
 .post-submit{
 
+}
+
+.label-post{
+  font-size: 30px;
 }
