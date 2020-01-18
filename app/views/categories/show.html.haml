@@ -1,0 +1,19 @@
+.all
+  = render "shared/header"
+  
+  .wrap-mypage
+    .wrap-mypage-main
+      .wrap-mypage-main__wrapper
+        %ul.wrap-mypage-main__wrapper__works
+          - @category.posts.each do |post|
+            %li.wrap-mypage-main__wrapper__works__box
+              .wrap-mypage-main__wrapper__works__box--image
+                = image_tag "#{post.image}", class: 'wrap-mypage-main__wrapper__works__box--image'
+              .wrap-mypage-main__wrapper__works__box--script
+                .wrap-mypage-main__wrapper__works__box--script--user
+                  投稿者 :
+                  = post.user.nickname
+                .wrap-mypage-main__wrapper__works__box--script--title
+                  = post.title
+                .wrap-mypage-main__wrapper__works__box--script--content
+                  = post.text

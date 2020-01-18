@@ -1,25 +1,5 @@
 .all
-  .header
-    .header--logo
-      = link_to 'CIRCLE', root_path
-    .header--menu
-      %ul.header--menu__lists
-        = link_to root_path do
-          .header--menu__lists--list
-            Top
-        = link_to groups_path do
-          .header--menu__lists--list
-            group
-        %li.header--menu__lists--list category
-        - if user_signed_in?
-          = link_to user_path(current_user) do
-            .header--menu__lists--list
-              my-page
-          = link_to destroy_user_session_path, class: "logout-btn", method: :delete do
-            .header--menu__lists--list
-              sign-out
-        - else
-          = link_to 'sign-in', user_session_path, class: 'li header--menu__lists--list'
+  = render "shared/header"
 
   .section-all
     .section-all--index
@@ -61,7 +41,16 @@
       -#           member:
           
     .section-all__category
-      .section-all__category
+      .section-all__category__wrap
+        .section-all__category__wrap--title
+          .section-all__category__wrap--title--name
+            Category
+          .section-all__category__wrap--contents
+          - @category.each do |category|
+            = link_to category_path(category.id) do
+              .section-all__category__wrap--contents__content
+              ・
+              = category.name
 
 
   .footer

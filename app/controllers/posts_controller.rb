@@ -9,7 +9,8 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all.order('id DESC')
     user = User.new(user_params)
-    
+    @category = Category.all.order('id DESC')
+
     if user.save
       sign_in User.find(user.id) unless user_signed_in?
     end
@@ -30,7 +31,30 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
+    @categories = Category.all
   end
+
+  def update
+    post = Post.find(params[:id])
+    if post.user_id == current_user.id
+      post.update(post_params)
+      redirect_to root_path
+    end
+  end
+
+  def destroy
+    post = Post.find(params[:id])
+    post.destroy if post.user_id == current_user.id
+    redirect_to root_path
+  end
+
+  def category
+    @category = Category.find(params[:id])
+    @post = Post.where(category)
+  end
+
+
   
 
   private
