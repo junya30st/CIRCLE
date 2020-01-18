@@ -1,0 +1,10 @@
+.all
+  = render "shared/header"
+
+  .category-index
+    .categpry-index__wrapper
+      .category-index__wrapper__content
+      - @category.each do |category|
+        = link_to category_path(category.id) do
+          .category-index__wrapper__content--name
+            = category.name
