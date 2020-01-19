@@ -1,0 +1,18 @@
+.category-index{
+  width: 100%;
+  height: auto;
+  &__wrapper{
+    width: 80%;
+    margin: 0 auto;
+    &__content{
+      display: flex;
+      &--name{
+        width: 30%;
+      }
+    }
+  }
+}
+
+.category-list{
+  display: block;
+}

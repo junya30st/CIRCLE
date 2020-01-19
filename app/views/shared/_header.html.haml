@@ -9,7 +9,9 @@
       = link_to groups_path do
         .header--menu__lists--list
           group
-      %li.header--menu__lists--list category
+      = link_to categories_path do
+        .header--menu__lists--list
+          category
       - if user_signed_in?
         = link_to user_path(current_user) do
           .header--menu__lists--list

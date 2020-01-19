@@ -1,12 +1,13 @@
 .show-wrapper{
   width: 100vw;
-  background: url(wall-white.jpg);
-
+  // background: url(wall-white.jpg);
+  background-color: #EEEEEE;
   &__container{
     width: 60%;
     margin: 0 auto;
     padding: 15px;
-    background-color: rgba($color: white, $alpha: 0.4);
+    background-color: white;
+    // background-color: rgba($color: white, $alpha: 0.4);
 
     &__title{
       margin-top: 20px;
@@ -36,9 +37,19 @@
         font-size: 14px;
       }
     }
-    &__edit{
-      text-align: center;
-      
+    &__btn{
+      width: 80%;
+      margin: 20px auto 0;
+      display: flex;
+      justify-content: space-between;
+      &__edit{
+
+        text-align: center;  
+      }
+      &_delete{
+
+        text-align: center; 
+      }
     }
   }
 }
@@ -46,4 +57,17 @@
 .show-image{
   width: 100%;
 
+}
+
+.btn-edit{
+  border-radius: 5px;
+  background-color: black;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-edit:hover{
+  opacity: 0.8;
 }
