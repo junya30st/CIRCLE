@@ -43,16 +43,17 @@
 
 .section-all{
   display: flex;
-  
+  background-color: #EEEEEE;
   &--index{
-    width: 80%;
+    width: 82%;
     height: 100%;
-
+    
     &__title{
+      background-color: white;
       font-family: 'Dosis', sans-serif;
       width: 90%;
       margin: 0 auto;
-      padding: 30px 10px;
+      padding: 30px 20px;
       display: flex;
       justify-content: space-between;
 
@@ -72,6 +73,8 @@
     &__wrap{
       width: 90%;
       margin: 0 auto;
+      background-color: white;
+      padding: 20px;
 
       &__contents{
         padding: 0;
@@ -182,7 +185,7 @@
 
 .section-all{
   &__category{
-    width: 20%;
+    width: 18%;
     height: auto;
 
     &__wrap{
@@ -204,9 +207,18 @@
 
         &__content{
           padding: 10px 20px;
-          font-size: 16px;
+          font-size: 12px;
         }
       }
     }
   }
+}
+
+.side-category{
+  font-size: 16px;
+}
+
+.side-category:hover{
+  opacity: 0.6;
+
 }

@@ -47,7 +47,7 @@
             Category
           .section-all__category__wrap--contents
           - @category.each do |category|
-            = link_to category_path(category.id) do
+            = link_to category_path(category.id), class:'side-category' do
               .section-all__category__wrap--contents__content
               ・
               = category.name
