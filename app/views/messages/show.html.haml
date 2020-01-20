@@ -1,0 +1,6 @@
+%h1 Chat-Room
+%input#chat-input{type: 'text'}
+%button#chat-button 送信
+#messages
+  - @message.each do |message|
+    = message.content
