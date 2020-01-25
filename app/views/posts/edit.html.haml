@@ -28,9 +28,4 @@
           = f.submit '投稿する', class:'post-submit'
 
   .footer
-    .footer__copy
-      %small.copyright
-      Copyright &copy;
-      = succeed "." do
-        %span#copyright_year
-        2019 "CIRCLE"
+    = render "shared/footer"

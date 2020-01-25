@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
   def show
-    @message = Message.all
+    @message = Message.find(params[:id])
   end
 end

@@ -32,9 +32,4 @@
             = user.nickname
 
   .footer
-    .footer__copy
-      %small.copyright
-      Copyright &copy;
-      = succeed "." do
-        %span#copyright_year
-        2019 "CIRCLE"
+    = render "shared/footer"

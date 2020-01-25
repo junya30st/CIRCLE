@@ -1,36 +1,31 @@
 .all
   = render "shared/header"
 
-= form_for @post do |f|
-  .post-main
-    .post-main__form
-      .post-main__form--name
-        Post & Share
-      .post-main__form--box
-        .post-main__form--box--title
-          %label{class:'label-post'} Title
-          = f.text_field :title, class:'post-title', placeholder:'  記事のタイトルを入力して下さい'
-        .post-main__form--box--category
-          %label{class:'label-post'} Category
-          %br
-          = f.collection_check_boxes :category_ids, @categories, :id, :name, class:'#' do |c|
-            .post-main__form--box--category--check
-              = c.check_box
-              = c.label{ c.text }
-        .post-main__form--box--image
-          %label{class:'label-post'} Image
-          %br
-          = f.file_field :image, class:'post-image'
-        .post-main__form--box--text
-          %label{class:'label-post'} Content
-          = f.text_area :text, class:'post-text',placeholder:'  本文を入力して下さい'
-        .post-main__form--box--button
-          = f.submit '投稿する', class:'post-submit'
+  = form_for @post do |f|
+    .post-main
+      .post-main__form
+        .post-main__form--name
+          Post & Share
+        .post-main__form--box
+          .post-main__form--box--title
+            %label{class:'label-post'} Title
+            = f.text_field :title, class:'post-title', placeholder:'  記事のタイトルを入力して下さい'
+          .post-main__form--box--category
+            %label{class:'label-post'} Category
+            %br
+            = f.collection_check_boxes :category_ids, @categories, :id, :name, class:'#' do |c|
+              .post-main__form--box--category--check
+                = c.check_box
+                = c.label{ c.text }
+          .post-main__form--box--image
+            %label{class:'label-post'} Image
+            %br
+            = f.file_field :image, class:'post-image'
+          .post-main__form--box--text
+            %label{class:'label-post'} Content
+            = f.text_area :text, class:'post-text',placeholder:'  本文を入力して下さい'
+          .post-main__form--box--button
+            = f.submit '投稿する', class:'post-submit'
 
   .footer
-    .footer__copy
-      %small.copyright
-      Copyright &copy;
-      = succeed "." do
-        %span#copyright_year
-        2019 "CIRCLE"
+    = render "shared/footer"

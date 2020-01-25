@@ -1,21 +1,26 @@
 .all
   = render "shared/header"
 
-- current_user.groups.each do |group|
-  .section-group
-    .section-group__title
-      .section-group__title--group Group
-    .section-group__wrap
-      .section-group__wrap__contents
-        .section-group__wrap__contents--name
-          グループ名：
-          = group.name
-        .section-group__wrap__contents--category
-          開発
-        %br
-        .section-group__wrap__contents--members
-          member：
-          - group.users.each do |g|
-            .section-group__wrap__contents--members--member
-              = g.nickname + '/'
-          -# = group.users.nickname
+
+.section-group
+  .section-group__title
+    .section-group__title--group Group
+  .section-group__wrap
+    - current_user.groups.each do |group|
+      = link_to group_path(group.id) do
+        .section-group__wrap__contents
+          .section-group__wrap__contents--name
+            グループ名：
+            = group.name
+          .section-group__wrap__contents--category
+            カテゴリ名：
+          %br
+          .section-group__wrap__contents--members
+            member：
+            - group.users.each do |g|
+              .section-group__wrap__contents--members--member
+                = g.nickname + '/'
+            -# = group.users.nickname
+  
+.footer
+  = render "shared/footer"

@@ -1,0 +1,12 @@
+.all
+  = render "shared/header"
+
+%h1 Chat-Room
+= label :content, 'Say something:'
+= text_field :content, nil, data: { behavior: 'room_speaker' }
+%button#chat-button 送信
+#messages{'data-group_id':"#{@group.id}"}
+  = render @messages
+
+.footer
+  = render "shared/footer"

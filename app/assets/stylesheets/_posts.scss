@@ -4,22 +4,26 @@
 
   .header{
     width: 100vw;
-    height: 120px;
+    // height: 120px;
+    height: 100vh;
     justify-content: space-between;
     display: flex;
 
     &--logo{
+      position: relative;
       font-family: 'Oswald', sans-serif;
       letter-spacing: 1px;
       font-size: 50px;
-      margin: 30px 0 0 50px;
+      // margin: 30px 0 0 50px;
+      margin: auto;
     }
 
     &--menu{
+      position: absolute;
       margin: 50px 30px 0 0;
 
       &__lists{
-        display: flex;
+        // display: flex;
         font-family: 'Dosis', sans-serif;
         letter-spacing: 1px;
 
@@ -88,11 +92,19 @@
           list-style: none;
           
           &--image{
-            object-fit: cover;
+            object-fit: contain;
+            height: 150px;
             width: 100%;
+            margin: 0 auto;
+            transition: all 0.25s ease 0s;
+          }
+          &--image:hover{
+            cursor: pointer;
+            transform: scale(1.05, 1.05);
           }
 
           &--script{
+            margin: 10px;
             padding: 0 10px;
             &--user{
               font-size: 12px;

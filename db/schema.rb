@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_19_132049) do
+ActiveRecord::Schema.define(version: 2020_01_21_104619) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 2020_01_19_132049) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "group_id"
+    t.index ["group_id"], name: "index_messages_on_group_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
@@ -91,6 +93,7 @@ ActiveRecord::Schema.define(version: 2020_01_19_132049) do
 
   add_foreign_key "group_users", "groups"
   add_foreign_key "group_users", "users"
+  add_foreign_key "messages", "groups"
   add_foreign_key "messages", "users"
   add_foreign_key "post_categories", "categories"
   add_foreign_key "post_categories", "posts"
