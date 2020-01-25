@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
 
 def index
+  @groups = Group.all.order(:id)
 end
 
 def new
@@ -15,6 +16,11 @@ def create
   else
     render "posts/new"
   end
+end
+
+def show
+  @group = Group.find(params[:id])
+  @messages = @group.messages
 end
 
 private

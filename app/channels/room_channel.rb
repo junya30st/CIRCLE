@@ -1,6 +1,6 @@
 class RoomChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "room_channel"
+    stream_from "room_channel_#{params['group']}"
   end
 
   def unsubscribed
@@ -8,8 +8,7 @@ class RoomChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    Message.create!(content: data['message'])
-    # jsで実行されたspeakのmessageを受け取り、room_channelのreceivedにブロードキャストする
-    ActionCable.server.broadcast 'room_channel', message: data['message']
+    Message.create!(content: data['message'], user_id: current_user.id, group_id: params['group'])
   end
+
 end
