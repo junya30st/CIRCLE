@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   end
   resources :categories, only: [:index, :show]
   resources :relationships, only: [:create, :destroy]
+  post 'follow/:id' => 'relationships#follow', as: 'follow' # フォローする
+  delete 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' # フォロー外す
   # mount ActionCable.server => '/cable'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,11 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Dosis:200&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Oswald:500&display=swap');
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+@import 'color/script';
 @import 'posts';
 @import 'signin';
 @import 'new';
 @import 'show';
-@import 'user_show';
+@import 'user-show';
 @import 'categories';
+@import 'header-mini';
+@import 'group';
+@import 'group-show';
+@import 'user-edit';
+
 
 *{
   margin: 0;

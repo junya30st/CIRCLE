@@ -4,7 +4,7 @@
   .section-all
     .section-all--index
       .section-all--index__title 
-        .section-all--index__title--post Post
+        .section-all--index__title--post What's new
         .section-all--index__title--new
           = link_to 'New-post', new_post_path,class:'new-post-link'
       .section-all--index__wrap
@@ -13,14 +13,19 @@
             = link_to post_path(post.id) do
               .section-all--index__wrap__contents__content
                 .section-all--index__wrap__contents__content--image
-                  = image_tag "#{post.image}", class:'section-all--index__wrap__contents__content--image'
+                  - if post.image.present?
+                    = image_tag "#{post.image}", class:'section-all--index__wrap__contents__content--image'
+                  - else
+                    = image_tag("noImage.png", class:'section-all--index__wrap__contents__content--image')
                 .section-all--index__wrap__contents__content--script
                   = link_to user_path(post.user.id) do
                     .section-all--index__wrap__contents__content--script--user
                       投稿者 :
                       = post.user.nickname
+                  
                     .section-all--index__wrap__contents__content--script--user
-                      カテゴリ :
+                      カテゴリ : 
+                      
                   .section-all--index__wrap__contents__content--script--title
                     = link_to "#{post.title}", post_path(post.id)
                   .section-all--index__wrap__contents__content--script--text

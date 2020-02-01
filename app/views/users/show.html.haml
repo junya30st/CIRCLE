@@ -1,60 +1,74 @@
 .all
-  = render "shared/header"
+  = render "shared/header-mini"
 
   .wrap-mypage
     .wrap-mypage-main
-      .wrap-mypage-main__profile
-        .wrap-mypage-main__profile__left
-          .wrap-mypage-main__profile__left--name
-            name：
-            = @user.nickname
-          .wrap-mypage-main__profile__left--introduce
-            プログラミングを2019/9から学習中です。
-            プログラミングを手段として様々なビジネスを行えればと考えています。
-        .wrap-mypage-main__profile__right
-          .wrap-mypage-main__profile__right--photo
-            写真
+      .wrap-mypage-main__title
+        
+        = link_to "編集する", edit_user_registration_path
 
-      
+      .wrap-mypage-main__profile 
+        .wrap-mypage-main__profile__left
+          .wrap-mypage-main__profile__left--photo
+            = image_tag "#{@user.image}", class:"my-image"
+        .wrap-mypage-main__profile__right
+          .wrap-mypage-main__profile__right--name
+            = @user.nickname
+          .wrap-mypage-main__profile__right--container
+            .wrap-mypage-main__profile__right--container__button--bop
+              - if current_user.following?(@user)
+                = link_to 'フォロー外す', unfollow_path(@user.id), class: "follow", method: :delete
+              - else
+                = link_to 'フォローする', follow_path(@user.id), class: "follow",method: :POST
+          .wrap-mypage-main__profile__right--introduce
+            = @user.workplace
+            
       .wrap-mypage-main__wrapper
-        %ul.wrap-mypage-main__wrapper__works
+        article
+      .wrap-mypage-main__article
+        %ul.wrap-mypage-main__article__works
           - @post.each do |post|
-            %li.wrap-mypage-main__wrapper__works__box
-              .wrap-mypage-main__wrapper__works__box--image
-                = image_tag "#{post.image}", class: 'wrap-mypage-main__wrapper__works__box--image'
-              .wrap-mypage-main__wrapper__works__box--script
-                .wrap-mypage-main__wrapper__works__box--script--user
+            %li.wrap-mypage-main__article__works__box
+              .wrap-mypage-main__article__works__box--image
+                - if post.image.present?
+                  = image_tag "#{post.image}", class:'wrap-mypage-main__article__works__box--image'
+                - else
+                  = image_tag("noImage.png", class:'wrap-mypage-main__article__works__box--image')
+              .wrap-mypage-main__article__works__box--script
+                .wrap-mypage-main__article__works__box--script--user
                   投稿者 :
                   = post.user.nickname
-                .wrap-mypage-main__wrapper__works__box--script--title
+                .wrap-mypage-main__article__works__box--script--title
                   = post.title
-                .wrap-mypage-main__wrapper__works__box--script--content
+                .wrap-mypage-main__article__works__box--script--content
                   = post.text
 
-- @user.groups.each do |group|
-  .section-group
-    .section-group__title
-      .section-group__title--group Group
-    .section-group__wrap
-      .section-group__wrap__contents
-        .section-group__wrap__contents--name
-          グループ名：
-          = group.name
-        .section-group__wrap__contents--category
-          開発
-        %br
-        .section-group__wrap__contents--members
-          member：
-          - group.users.each do |g|
-            .section-group__wrap__contents--members--member
-              = g.nickname + '/'
+.section-group
+  .section-group__wrap
+    .section-group__wrap__title
+      .section-group__wrap__title--group 
+        My - Group
+    - @user.groups.each do |group|
+      .section-group__wrap__index
+        .section-group__wrap__index__contents
+          .section-group__wrap__index__contents__content--name
+            グループ名：
+            = group.name
+          .section-group__wrap__index__contents__content--category
+            開発
+          %br
+          .section-group__wrap__index__contents__content--members
+            member：
+            - group.users.each do |g|
+              .section-group__wrap__index__contents__content--members--member
+                = image_tag "#{g.image}", class: "avater"
 
 
 
-  .footer
-    .footer__copy
-      %small.copyright
-      Copyright &copy;
-      = succeed "." do
-        %span#copyright_year
-        2019 "CIRCLE"
+.footer
+  .footer__copy
+    %small.copyright
+    Copyright &copy;
+    = succeed "." do
+      %span#copyright_year
+      2019 "CIRCLE"
