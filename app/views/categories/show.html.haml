@@ -1,19 +1,63 @@
 .all
-  = render "shared/header"
-  
-  .wrap-mypage
-    .wrap-mypage-main
-      .wrap-mypage-main__wrapper
-        %ul.wrap-mypage-main__wrapper__works
-          - @category.posts.each do |post|
-            %li.wrap-mypage-main__wrapper__works__box
-              .wrap-mypage-main__wrapper__works__box--image
-                = image_tag "#{post.image}", class: 'wrap-mypage-main__wrapper__works__box--image'
-              .wrap-mypage-main__wrapper__works__box--script
-                .wrap-mypage-main__wrapper__works__box--script--user
-                  投稿者 :
-                  = post.user.nickname
-                .wrap-mypage-main__wrapper__works__box--script--title
-                  = post.title
-                .wrap-mypage-main__wrapper__works__box--script--content
-                  = post.text
+  = render "shared/header-mini"
+
+.section-all
+  .section-all--index
+    .section-all--index__title 
+      .section-all--index__title--post
+        Category：
+        = @category.name
+    .section-all--index__wrap
+      %ul.section-all--index__wrap__contents
+        - @category.posts.each do |post|
+          = link_to post_path(post.id) do
+            .section-all--index__wrap__contents__content
+              .section-all--index__wrap__contents__content--image
+                - if post.image.present?
+                  = image_tag "#{post.image}", class:'section-all--index__wrap__contents__content--image'
+                - else
+                  = image_tag("noImage.png", class:'section-all--index__wrap__contents__content--image')
+              .section-all--index__wrap__contents__content--script
+                = link_to user_path(post.user.id) do
+                  .section-all--index__wrap__contents__content--script--user
+                    投稿者 :
+                    = post.user.nickname
+                  .section-all--index__wrap__contents__content--script--user
+                    カテゴリ : 
+                    = @category.name
+                    
+                .section-all--index__wrap__contents__content--script--title
+                  = link_to "#{post.title}", post_path(post.id)
+                .section-all--index__wrap__contents__content--script--text
+                  = truncate(post.text, length: 100)
+
+  -# .wrap-mypage
+  -#   .wrap-mypage-main
+  -#     .wrap-mypage-main__title
+  -#       = "Category：#{@category.name}"
+  -#     .wrap-mypage-main__wrapper
+  -#       %ul.wrap-mypage-main__wrapper__works
+  -#         - @category.posts.each do |post|
+  -#           = link_to post_path(post.id) do
+  -#             %li.wrap-mypage-main__wrapper__works__box
+  -#               .wrap-mypage-main__wrapper__works__box--image
+  -#                 - if post.image.present?
+  -#                   = image_tag "#{post.image}", class:'wrap-mypage-main__wrapper__works__box--image'
+  -#                 - else
+  -#                   = image_tag("noImage.png", class:'wrap-mypage-main__wrapper__works__box--image')
+  -#               .wrap-mypage-main__wrapper__works__box--script
+  -#                 .wrap-mypage-main__wrapper__works__box--script--user
+  -#                   投稿者 :
+  -#                   = post.user.nickname
+  -#                 .wrap-mypage-main__wrapper__works__box--script--title
+  -#                   = post.title
+  -#                 .wrap-mypage-main__wrapper__works__box--script--content
+  -#                   = post.text
+
+.footer
+  .footer__copy
+    %small.copyright
+    Copyright &copy;
+    = succeed "." do
+      %span#copyright_year
+      2019 "CIRCLE"

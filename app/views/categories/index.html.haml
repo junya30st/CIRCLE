@@ -1,10 +1,9 @@
-.all
-  = render "shared/header"
+-# .all
+-#   = render "shared/header-mini"
 
-  .category-index
-    .category-index__wrapper
-      .category-index__wrapper__content
-        - @category.each do |category|
-          = link_to category_path(category.id),class: 'category-list' do
-            .category-index__wrapper__content--name
-              = category.name
+-#   .category-index
+-#     .category-index__wrapper
+-#       .category-index__wrapper__content
+-#         - @category.each do |category|
+-#           .category-index__wrapper__content--name
+-#             = link_to "#{category.name}", category_path(category.id),class: 'category-list'

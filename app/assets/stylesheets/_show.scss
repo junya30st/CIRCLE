@@ -1,35 +1,33 @@
 .show-wrapper{
   width: 100vw;
   // background: url(wall-white.jpg);
-  background-color: #EEEEEE;
+
   &__container{
     width: 60%;
-    margin: 0 auto;
-    padding: 15px;
+    margin: 40px auto 20px;
     background-color: white;
     // background-color: rgba($color: white, $alpha: 0.4);
 
     &__title{
-      margin-top: 20px;
-      display: flex;
-      justify-content: space-between;
+      width: 80%;
+      margin: 0 auto;
       &--name{
         font-weight: bold;
         font-size: 30px;
-        width: 80%;
+        color: $black;
       }
       &--user{
+        color: $black;
         bottom: 0;
         text-align: right;
-        
       }
     }
     &__lists{
       width: 80%;
-      margin: 20px auto 0;
+      margin: 10px auto 0;
 
       &--image{
-        margin-top: 30px;
+        margin-top: 20px;
       }
 
       &--text{

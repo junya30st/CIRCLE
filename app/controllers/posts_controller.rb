@@ -60,7 +60,7 @@ class PostsController < ApplicationController
   private
 
   def user_params
-    params.permit(:nickname, :email, :password, :password_confirmation)
+    params.permit(:id,:nickname, :email, :password, :password_confirmation, :image, :workplace)
   end
 
   def post_params

@@ -1,0 +1,56 @@
+.section-group{
+  width: 100%;
+  min-height: calc(100vh - 240px);
+  &__title{
+    width: 80%;
+    margin: 0 auto;
+    
+    &--group{
+      font-family: 'Dosis', sans-serif;
+      padding: 30px 10px;
+      text-align: center;
+      font-size: 40px;
+      border-bottom: 2px solid black;
+    }
+  }
+  &__index{
+    width: 80%;
+    margin: 0 auto;
+    padding: 30px 10px;
+    
+    &__contents{
+      width: 100%;
+
+
+      &__content{
+        
+        padding: 15px;
+        background: white;
+        font-size: 8px;
+
+        &--name{
+          margin-right: 20px;
+          font-size: 16px;
+          float: left;
+        }
+
+        &--category{
+          float: left;
+        }
+
+        &--members{
+          float: left;
+          display: flex;
+          &--member{
+            letter-spacing: 1px;
+            padding-right: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.group-footer{
+  bottom:0;
+}

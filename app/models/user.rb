@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
+  mount_uploader :image, ImageUploader
   has_many :posts
 
   has_many :messages
@@ -11,23 +11,29 @@ class User < ApplicationRecord
   has_many :group_users
   has_many :groups, through: :group_users
 
-  has_many :relationships
-  has_many :followings, through: :relationships, source: :follow
-  has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
-  has_many :foolowers, through: :reverse_of_relationships, source: :user
+  #ユーザーとフォローする人(follower)を結びつける
+  has_many :follower, class_name: 'Relationship', foreign_key: 'user_id'
+  #ユーザーとフォローされる人(followed)を結びつける
+  has_many :followed, class_name: 'Relationship', foreign_key: 'follow_id'
 
-  def follow(other_user)
-    unless self == other_user
-      self.relationships.find_or_create_by(follow_id: other_user.id)
-    end
+  #自分がフォローしているユーザーを簡単に取得する
+  has_many :following_user, through: :follower, source: :followed
+  #自分をフォローしているユーザーを簡単に取得する
+  has_many :foolower_user, through: :followed, source: :follower
+
+
+  #フォローするメソッド
+  def follow(user_id)
+      follower.create(follow_id: user_id)
   end
 
-  def unfollow(other_user)
-    relationship = self.relationships.find_by(follow_id: other_user.id)
-    relationship.destroy if relationship
+  #フォローを解除するメソッド
+  def unfollow(user_id)
+    follower.find_by(follow_id: user_id).destroy
   end
 
-  def following?
-    self.followings.include?(other_user)
+  #フォローしているか確認するメソッド
+  def following?(user)
+    following_user.include?(user)
   end
 end

@@ -5,14 +5,32 @@
     width: 80%;
     margin: 0 auto;
     &__content{
+      width: 25%;
       display: flex;
+      flex-wrap: wrap;
+      text-align: center;
+      font-size: 0;
       &--name{
-        width: 30%;
+        display: inline-block;
+        width: 40%;
+        text-align: center;
+        padding: 20px;
+        a{
+          display: block;
+          background-color: aqua;
+          margin-right: 10px;
+          padding: 20px;
+        }
       }
     }
   }
 }
 
 .category-list{
-  display: block;
+  width: 50%;
+  display: inline-block;
+}
+
+.category-img{
+  width: 25%;
 }

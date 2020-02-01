@@ -1,0 +1,26 @@
+.category-page{
+  &--main{
+    width: 100vw;
+    &__wrapper{
+      width: 80%;
+      margin: 0 auto;
+      
+      &__works{
+        &__box{
+          &--image{
+
+          }
+          &--script{
+            &--user{
+
+            }
+            &--title{
+
+            }
+            &--content
+          }
+        }
+      }
+    }
+  }
+}

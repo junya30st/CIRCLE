@@ -1,36 +1,84 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
-  .field
-    = f.label :password
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-    - if @minimum_password_length
-      %br/
-      %em
-        = @minimum_password_length
-        characters minimum
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :current_password
-    %i (we need your current password to confirm your changes)
-    %br/
-    = f.password_field :current_password, autocomplete: "current-password"
-  .actions
-    = f.submit "Update"
-%h3 Cancel my account
-%p
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-= link_to "Back", :back
+.all
+  = render "shared/header-mini"
+
+  .edit-wrapper
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+      .edit-wrapper__form
+        .edit-wrapper__form--name
+          %label{class:'label-signin'} Nickname
+          %br
+          %span{class:'form-must'} 
+          = f.text_field :nickname, class:'signin-form', placeholder:'5文字以上(登録後に変更可能です)'
+        .edit-wrapper__form--email
+          %label{class:'label-signin'} email
+          %br
+          %span{class:'form-must'} 
+          = f.email_field :email, class:'signin-form', placeholder:'5文字以上(登録後に変更可能です)'
+        .edit-wrapper__form--password
+          %label{class:'label-signin'} Password
+          %br
+          %span{class:'form-must'}
+          = f.password_field :password, class:'signin-form', placeholder:'8文字以上'
+        .edit-wrapper__form--password
+          %label{class:'label-signin'} Password
+          %br
+          %span{class:'form-must'}
+          = f.password_field :password_confirmation, class:'signin-form', placeholder:'8文字以上(確認)'
+        .edit-wrapper__form--password
+          %label :current_password
+          %i (we need your current password to confirm your changes)
+          %br/
+          = f.password_field :current_password, autocomplete: "current-password", class:'signin-form'
+      .edit-wrapper__add
+        .edit-wrapper__add--image
+          %label{class:'label-signin'} my-image
+          %br
+          %span{class:'form-must'}
+          = f.file_field :image
+        .edit-wrapper__add--introduce
+          %label{class:'label-signin'} my-introduce
+          %br
+          %span{class:'form-must'}
+          = f.text_area :workplace, class: 'introduce-form'
+
+        .edit-wrapper__form--submit
+          = f.submit '編集して進む', class: 'signin-button'
+
+  .footer
+    = render "shared/footer"
+-# %h2
+-#   Edit #{resource_name.to_s.humanize}
+-# = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+-#   = render "devise/shared/error_messages", resource: resource
+-#   .field
+-#     = f.label :email
+-#     %br/
+-#     = f.email_field :email, autofocus: true, autocomplete: "email"
+-#   - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+-#     %div
+-#       Currently waiting confirmation for: #{resource.unconfirmed_email}
+-#   .field
+-#     = f.label :password
+-#     %i (leave blank if you don't want to change it)
+-#     %br/
+-#     = f.password_field :password, autocomplete: "new-password"
+-#     - if @minimum_password_length
+-#       %br/
+-#       %em
+-#         = @minimum_password_length
+-#         characters minimum
+-#   .field
+-#     = f.label :password_confirmation
+-#     %br/
+-#     = f.password_field :password_confirmation, autocomplete: "new-password"
+-#   .field
+-#     = f.label :current_password
+-#     %i (we need your current password to confirm your changes)
+-#     %br/
+-#     = f.password_field :current_password, autocomplete: "current-password"
+-#   .actions
+-#     = f.submit "Update"
+-# %h3 Cancel my account
+-# %p
+-#   Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
+-# = link_to "Back", :back
