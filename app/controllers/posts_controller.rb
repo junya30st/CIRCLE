@@ -7,13 +7,10 @@ class PostsController < ApplicationController
   # end
 
   def index
-    @posts = Post.all.order('id DESC')
+    @posts = Post.includes(:user).order('id DESC')
     user = User.new(user_params)
     @category = Category.all
 
-    if user.save
-      sign_in User.find(user.id) unless user_signed_in?
-    end
   end
 
   def new
@@ -23,7 +20,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create(post_params)
-    redirect_to root_path
+    # redirect_to root_path, notice: "記事を作成しました"
   end
 
   def show
@@ -53,9 +50,6 @@ class PostsController < ApplicationController
     @category = Category.find(params[:id])
     @post = Post.where(category)
   end
-
-
-  
 
   private
 

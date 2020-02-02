@@ -5,6 +5,8 @@
 .section-group
   .section-group__title
     .section-group__title--group Group - list
+    .section-group__title--new
+      = link_to '新規作成', new_group_path
   .section-group__index
     .section-group__index__contents
       - current_user.groups.each do |group|

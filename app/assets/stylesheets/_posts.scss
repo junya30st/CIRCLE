@@ -89,8 +89,9 @@
         border-bottom: 2px solid black;
       }
       &--new{
-        font-size: 20px;
+        font-size: 16px;
         top: 10px;
+        text-align: right;
       }
       &--new:hover{
         cursor: pointer;
@@ -110,7 +111,7 @@
         &__content{
           padding: 0 10px;
           width: 25%;
-          height: 420px;
+          height: 380px;
           list-style: none;
           
           &--image{

@@ -4,16 +4,23 @@
   .wrap-mypage
     .wrap-mypage-main
       .wrap-mypage-main__title
-        
+        Profile
+      .wrap-mypage-main--edit
         = link_to "編集する", edit_user_registration_path
-
       .wrap-mypage-main__profile 
         .wrap-mypage-main__profile__left
           .wrap-mypage-main__profile__left--photo
-            = image_tag "#{@user.image}", class:"my-image"
+            - if @user.image.present?
+              = image_tag "#{@user.image}", class:"my-image"
+            - else
+              = image_tag("noImage.png", class:"my-image")
         .wrap-mypage-main__profile__right
           .wrap-mypage-main__profile__right--name
             = @user.nickname
+          .wrap-mypage-main__profile__right--follow
+            //フォローしている人数
+          .wrap-mypage-main__profile__right--follower
+            //フォロワーの人数
           .wrap-mypage-main__profile__right--container
             .wrap-mypage-main__profile__right--container__button--bop
               - if current_user.following?(@user)
@@ -23,25 +30,30 @@
           .wrap-mypage-main__profile__right--introduce
             = @user.workplace
             
-      .wrap-mypage-main__wrapper
-        article
-      .wrap-mypage-main__article
-        %ul.wrap-mypage-main__article__works
+  .section-all
+    .section-all--index
+      .section-all--index__title 
+        .section-all--index__title--post What's new
+        .section-all--index__title--new
+          = link_to '新規作成', new_post_path,class:'new-post-link'
+      .section-all--index__wrap
+        %ul.section-all--index__wrap__contents
           - @post.each do |post|
-            %li.wrap-mypage-main__article__works__box
-              .wrap-mypage-main__article__works__box--image
-                - if post.image.present?
-                  = image_tag "#{post.image}", class:'wrap-mypage-main__article__works__box--image'
-                - else
-                  = image_tag("noImage.png", class:'wrap-mypage-main__article__works__box--image')
-              .wrap-mypage-main__article__works__box--script
-                .wrap-mypage-main__article__works__box--script--user
-                  投稿者 :
-                  = post.user.nickname
-                .wrap-mypage-main__article__works__box--script--title
-                  = post.title
-                .wrap-mypage-main__article__works__box--script--content
-                  = post.text
+            = link_to post_path(post.id) do
+              .section-all--index__wrap__contents__content
+                .section-all--index__wrap__contents__content--image
+                  - if post.image.present?
+                    = image_tag "#{post.image}", class:'section-all--index__wrap__contents__content--image'
+                  - else
+                    = image_tag("noImage.png", class:'section-all--index__wrap__contents__content--image')
+                .section-all--index__wrap__contents__content--script
+                  .section-all--index__wrap__contents__content--script--user
+                    カテゴリ : 
+                      
+                  .section-all--index__wrap__contents__content--script--title
+                    = link_to "#{post.title}", post_path(post.id)
+                  .section-all--index__wrap__contents__content--script--text
+                    = truncate(post.text, length: 100)
 
 .section-group
   .section-group__wrap
@@ -61,7 +73,10 @@
             member：
             - group.users.each do |g|
               .section-group__wrap__index__contents__content--members--member
-                = image_tag "#{g.image}", class: "avater"
+                - if g.image.present?
+                  = image_tag "#{g.image}", class: "avater"
+                - else
+                  = image_tag("noImage.png", class: "avater")
 
 
 

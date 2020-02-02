@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
 
   def index
-    @category = Category.all
+    @category = Category.includes(:post).order('id DESC')
   end
 
   def show
