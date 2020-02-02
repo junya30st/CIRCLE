@@ -9,7 +9,7 @@
         = @category.name
     .section-all--index__wrap
       %ul.section-all--index__wrap__contents
-        - @category.posts.each do |post|
+        - @category.posts.order('id DESC').each do |post|
           = link_to post_path(post.id) do
             .section-all--index__wrap__contents__content
               .section-all--index__wrap__contents__content--image
@@ -22,9 +22,9 @@
                   .section-all--index__wrap__contents__content--script--user
                     投稿者 :
                     = post.user.nickname
-                  .section-all--index__wrap__contents__content--script--user
-                    カテゴリ : 
-                    = @category.name
+                  -# .section-all--index__wrap__contents__content--script--user
+                  -#   カテゴリ : 
+                  -#   = @category.name
                     
                 .section-all--index__wrap__contents__content--script--title
                   = link_to "#{post.title}", post_path(post.id)

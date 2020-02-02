@@ -1,0 +1,45 @@
+.group-create{
+  background-image: url(top-header);
+  background-size: cover;
+  height: calc(100vh - 260px);
+  text-align: center;
+  position: relative;
+
+  &::after{
+    content:'';
+    height: 100%;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.6);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+  &__wrapper{
+    width: 80%;
+    padding-bottom: 20px;
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    &__title{
+      font-family: 'Dosis', sans-serif;
+      font-size: 40px;
+      padding: 30px 0;
+      border-bottom: 2px solid black;
+    }
+    &__form{
+      width: 42%;
+      margin: 0 auto;
+      &--name{
+        &--label{}
+        &--input{}
+      }
+      &--member{}
+      &--submit{}
+    }
+  }
+}
+
+.newgroup-name{
+  width: 100%;
+}
