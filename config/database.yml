@@ -49,6 +49,9 @@ test:
 #
 production:
   <<: *default
-  database: CIRCLE_production
-  username: CIRCLE
-  password: <%= ENV['CIRCLE_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  # database: CIRCLE_production
+  # username: CIRCLE
+  # password: <%= ENV['CIRCLE_DATABASE_PASSWORD'] %>
