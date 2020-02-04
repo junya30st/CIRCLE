@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       post 'user'
     end
   end
-  resources :categories, only: [:index, :show]
+  resources :categories
   resources :relationships, only: [:create, :destroy]
   post 'follow/:id' => 'relationships#follow', as: 'follow' # フォローする
   delete 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' # フォロー外す

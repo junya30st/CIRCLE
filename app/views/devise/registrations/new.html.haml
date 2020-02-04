@@ -1,28 +1,40 @@
-.signin-wrapper
-= form_with url:root_path, local: true, method: :get do |f|
-  .signin-wrapper__form
-    .signin-wrapper__form--name
-      %label{class:'label-signin'} Nickname
-      %br
-      %span{class:'form-must'} 
-      = f.text_field :nickname, class:'signin-form', placeholder:'5文字以上(登録後に変更可能です)'
-    .signin-wrapper__form--email
-      %label{class:'label-signin'} email
-      %br
-      %span{class:'form-must'} 
-      = f.email_field :email, class:'signin-form', placeholder:'5文字以上(登録後に変更可能です)'
-    .signin-wrapper__form--password
-      %label{class:'label-signin'} Password
-      %br
-      %span{class:'form-must'}
-      = f.password_field :password, class:'signin-form', placeholder:'8文字以上'
-    .signin-wrapper__form--password
-      %label{class:'label-signin'} Password
-      %br
-      %span{class:'form-must'}
-      = f.password_field :password_confirmation, class:'signin-form', placeholder:'8文字以上(確認)'
-    .signin-wrapper__form--submit
-      = f.submit '登録して進む', class: 'signin-button'
+.all
+  = render "shared/header-mini"
+
+  .signup-wrapper
+  = form_with url:root_path, local: true, method: :get do |f|
+    .signup-wrapper__form
+      .signup-wrapper__form--name
+        %label{class:'label-signin'} Nickname
+        %br
+        %span{class:'form-must'} 
+        = f.text_field :nickname, class:'signin-form', placeholder:'5文字以上(登録後に変更可能です)'
+      .signup-wrapper__form--email
+        %label{class:'label-signin'} email
+        %br
+        %span{class:'form-must'} 
+        = f.email_field :email, class:'signin-form', placeholder:'例)xxx@xxx.com'
+      .signup-wrapper__form--password
+        %label{class:'label-signin'} Password
+        %br
+        %span{class:'form-must'}
+        = f.password_field :password, class:'signin-form', placeholder:'8文字以上'
+      .signup-wrapper__form--password
+        %label{class:'label-signin'} Password
+        %br
+        %span{class:'form-must'}
+        = f.password_field :password_confirmation, class:'signin-form', placeholder:'8文字以上(確認)'
+      .signup-wrapper__form--submit
+        = f.submit '登録して進む', class: 'signin-button'
+
+  .footer
+    .footer__copy
+      %small.copyright
+      Copyright &copy;
+      = succeed "." do
+        %span#copyright_year
+        2019 "CIRCLE"
+
 
 -# %h2 Sign up
 -# = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
