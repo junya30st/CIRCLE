@@ -7,7 +7,7 @@
       .section-all--index__title 
         .section-all--index__title--post What's new
         .section-all--index__title--new
-          = link_to 'New-post', new_post_path,class:'new-post-link'
+          = link_to '新規投稿', new_post_path,class:'new-post-link'
       .section-all--index__wrap
         %ul.section-all--index__wrap__contents
           - @posts.each do |post|
@@ -23,9 +23,10 @@
                     .section-all--index__wrap__contents__content--script--user
                       投稿者 :
                       = post.user.nickname
-                  
-                    .section-all--index__wrap__contents__content--script--user
-                      カテゴリ : 
+                  - post.categories.each do |c|
+                    .section-all--index__wrap__contents__content--script--category
+                      •
+                      = c.name
                       
                   .section-all--index__wrap__contents__content--script--title
                     = link_to "#{post.title}", post_path(post.id)
@@ -52,6 +53,8 @@
         .section-all__category__wrap--title
           .section-all__category__wrap--title--name
             Category
+          .section-all__category__wrap--title--new
+            = link_to '新規作成', new_category_path
           .section-all__category__wrap--contents
           - @category.each do |category|
             = link_to category_path(category.id), class:'side-category' do

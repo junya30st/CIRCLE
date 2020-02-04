@@ -1,0 +1,28 @@
+.signup-wrapper{
+  box-sizing: border-box;
+  background-image: url(top-header.jpg);
+  background-size: cover;
+
+  height: calc(100vh - 240px);
+  width: 100vw;
+  position: absolute;
+  opacity: 0.4;
+  display: block;
+
+  &__form{
+    height: 100%;
+    position: relative;
+    text-align: center;
+    padding: 20px 0px 60px;
+
+    &__box{
+      margin: 0 auto;
+
+      &--button{
+        text-align: center;
+        margin: 0 auto;
+
+      }
+    }
+  }
+}

@@ -9,13 +9,12 @@
       = link_to '新規作成', new_group_path
   .section-group__index
     .section-group__index__contents
-      - current_user.groups.each do |group|
+      - @groups.each do |group|
         = link_to group_path(group.id) do
           .section-group__index__contents__content
             .section-group__index__contents__content--name
               = group.name
-            .section-group__index__contents__content--category
-              カテゴリ：
+
             .section-group__index__contents__content--members
               - group.users.each do |g|
                 .section-group__index__contents__content--members--member

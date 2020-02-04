@@ -1,0 +1,17 @@
+.all
+  = render "shared/header-mini"
+
+  = form_for @category do |f|
+    .category-main
+      .category-main__form
+        .category-main__form--name
+          Create new-category
+        .category-main__form--box
+          .category-main__form--box--title
+            %label{class:'label-post'} Name
+            = f.text_field :name, class:'category-create-title', placeholder:' 新規で作成するカテゴリー名を入力'
+          .category-main__form--box--button
+            = f.submit '作成する', class:'category-submit'
+
+  .footer
+    = render "shared/footer"
