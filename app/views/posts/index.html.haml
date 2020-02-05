@@ -32,6 +32,8 @@
                     = link_to "#{post.title}", post_path(post.id)
                   .section-all--index__wrap__contents__content--script--text
                     = truncate(post.text, length: 100)
+        .paginate
+          = paginate(@posts)
 
       -# - @groups.each do |group|
       -#   .section-group
