@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   # end
 
   def index
-    @posts = Post.includes(:user).order('id DESC')
+    @posts = Post.includes(:user).order('id DESC').page(params[:page]).per(8)
     user = User.new(user_params)
     @category = Category.all
 
