@@ -8,7 +8,7 @@
 
     &--title{
       font-family: 'Dosis', sans-serif;
-      padding: 30px 10px;
+      padding: 10px 20px;
       text-align: center;
       font-size: 40px;
       border-bottom: 2px solid black; 
@@ -16,7 +16,9 @@
     &--contents{
       padding: 0 20px;
       width: 80%;
-      margin: 0 auto;
+      height: 500px;
+      margin: 10px auto;
+      overflow: scroll;
 
       &--message{
         position: relative;
@@ -50,10 +52,11 @@
           border-right: 14px solid #555;
           z-index: 1;
         }
-        &--form{
-          
-        }
       }
+    }
+    &--form{
+      width: 80%;
+      margin: 0 auto;
     }
   }
 }
