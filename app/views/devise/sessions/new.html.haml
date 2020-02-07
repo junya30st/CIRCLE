@@ -14,11 +14,6 @@
         %br
         %span{class:'form-must'}
         = f.password_field :password, class:'signin-form', placeholder:'8文字以上'
-      .signin-wrapper__form--password
-        %label{class:'label-signin'} Password
-        %br
-        %span{class:'form-must'}
-        = f.password_field :password_confirmation, class:'signin-form', placeholder:'8文字以上(確認)'
       .signin-wrapper__form--submit
         = f.submit 'Sign-in', class: 'signin-button'
 

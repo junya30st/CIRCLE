@@ -9,8 +9,9 @@ $(function() {
     },
     received: function(data) {
       // room_channel.rbでブロードキャストされたものがここに届く
-      return $('#messages').append(data['message']);
-      
+      $('#messages').append(data['message']);
+      $('.chat-room__wrap--contents').animate({scrollTop: $('.chat-room__wrap--contents')[0].scrollHeight});
+      console.log('ok')
     },
     speak: function(message) {
       return this.perform('speak', {message: message, group_id: $('#messages').data('group_id')
