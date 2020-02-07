@@ -63,20 +63,21 @@
     - @user.groups.each do |group|
       .section-group__wrap__index
         .section-group__wrap__index__contents
-          .section-group__wrap__index__contents__content--name
-            グループ名：
-            = group.name
-          .section-group__wrap__index__contents__content--category
-            開発
-          %br
-          .section-group__wrap__index__contents__content--members
+          .section-group__wrap__index__contents__content
+            .section-group__wrap__index__contents__content--name
+              グループ名：
+              = group.name
+            .section-group__wrap__index__contents__content--category
+              開発
+
+          .section-group__wrap__index__contents--members
             member：
             - group.users.each do |g|
-              .section-group__wrap__index__contents__content--members--member
-                - if g.image.present?
-                  = image_tag "#{g.image}", class: "avater"
-                - else
-                  = image_tag("noImage.png", class: "avater")
+              .section-group__wrap__index__contents--members--member
+              - if g.image.present?
+                = image_tag "#{g.image}", class: "avater"
+              - else
+                = image_tag("noImage.png", class: "avater")
 
 
 

@@ -7,7 +7,20 @@
     margin: 40px auto 20px;
     background-color: white;
     // background-color: rgba($color: white, $alpha: 0.4);
+    &--top{
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+      margin: 0 auto;
 
+      &__created{
+        bottom: 0;
+        line-height: 24px;
+      }
+      &__user{
+        color: $black;
+      }
+    }
     &__title{
       width: 80%;
       margin: 0 auto;
@@ -16,18 +29,24 @@
         font-size: 30px;
         color: $black;
       }
-      &--user{
-        color: $black;
-        bottom: 0;
-        text-align: right;
-      }
     }
+
     &__lists{
       width: 80%;
       margin: 10px auto 0;
-
+      position: relative;
       &--image{
+        width: 100%;
         margin-top: 20px;
+      }
+      .like{
+        height:20px;
+        position: absolute;
+        &--btn{
+          
+          right:10px;
+          top:10px;
+        }
       }
 
       &--text{

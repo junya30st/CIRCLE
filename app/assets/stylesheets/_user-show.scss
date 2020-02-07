@@ -3,7 +3,7 @@
   height: 100%;
   // background-color:#EEEEEE;
   &-main{
-    width: 80%;
+    width: 74%;
     height: auto;
     margin: 0 auto;
     background-color: white;
@@ -19,7 +19,7 @@
       text-align: right;
     }
     &__profile{
-      margin: 20px 0 20px;
+      margin-bottom: 20px;
       display: flex;
       height: 10rem;
       &__left{
@@ -148,7 +148,7 @@
   min-height: calc(100vh - 240px);
   &__wrap{
     &__title{
-      width: 80%;
+      width: 74%;
       margin: 0 auto;
       
       &--group{
@@ -162,7 +162,7 @@
     &__index{
       width: 60%;
       margin: 0 auto;
-      padding: 35px 10px;
+      padding: 10px;
       border-bottom: 0.5px solid rgb(194, 190, 190);
       
       &__contents{
@@ -170,9 +170,6 @@
 
 
         &__content{
-          
-          padding: 15px;
-          background: white;
           font-size: 8px;
 
           &--name{
@@ -183,16 +180,17 @@
 
           &--category{
             float: left;
+            font-size: 16px;
           }
-
-          &--members{
-            float: left;
-            display: flex;
-            line-height: 30px;
-            &--member{
-              letter-spacing: 1px;
-              padding-right: 10px;
-            }
+        }
+        &--members{
+          clear: both;
+          display: flex;
+          line-height: 30px;
+          padding-top: 10px;
+          &--member{
+            letter-spacing: 1px;
+            padding-right: 10px;
           }
         }
       }
