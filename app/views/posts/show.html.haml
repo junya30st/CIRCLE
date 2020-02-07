@@ -3,16 +3,21 @@
 
   .show-wrapper
     .show-wrapper__container
-      .show-wrapper__container__title
-        = link_to user_path(@post.user.id) do
-          .show-wrapper__container__title--user 
+      .show-wrapper__container--top
+        .show-wrapper__container--top__created
+          =@post.created_at.strftime("%Y-%m-%d %H:%M")
+        .show-wrapper__container--top__user
+          = link_to user_path(@post.user.id) do
             投稿者 :
             = @post.user.nickname
+      .show-wrapper__container__title
         .show-wrapper__container__title--name
           = @post.title
       .show-wrapper__container__lists
         .show-wrapper__container__lists--image
           = image_tag "#{@post.image}", class:'show-image'
+        %button#like.like{id: @post.id, class: 'btn-like'}
+          = render partial:"likes/like", locals:{post: @post}
         .show-wrapper__container__lists--text
           = simple_format(@post.text)
       - if user_signed_in? && current_user.id == @post.user_id
@@ -28,3 +33,5 @@
   
   .footer
     = render "shared/footer"
+
+    -# %div{id: "like-#{@post.id}"}
