@@ -30,22 +30,25 @@
           = link_to '新規作成', new_post_path,class:'new-post-link'
       .section-all--index__wrap
         %ul.section-all--index__wrap__contents
-          - @post.each do |post|
-            = link_to post_path(post.id) do
-              .section-all--index__wrap__contents__content
-                .section-all--index__wrap__contents__content--image
-                  - if post.image.present?
-                    = image_tag "#{post.image}", class:'section-all--index__wrap__contents__content--image'
-                  - else
-                    = image_tag("noImage.png", class:'section-all--index__wrap__contents__content--image')
-                .section-all--index__wrap__contents__content--script
-                  .section-all--index__wrap__contents__content--script--user
-                    カテゴリ : 
-                      
-                  .section-all--index__wrap__contents__content--script--title
-                    = link_to "#{post.title}", post_path(post.id)
-                  .section-all--index__wrap__contents__content--script--text
-                    = truncate(post.text, length: 100)
+          - if @post.present?
+            - @post.each do |post|
+              = link_to post_path(post.id) do
+                .section-all--index__wrap__contents__content
+                  .section-all--index__wrap__contents__content--image
+                    - if post.image.present?
+                      = image_tag "#{post.image}", class:'section-all--index__wrap__contents__content--image'
+                    - else
+                      = image_tag("noImage.png", class:'section-all--index__wrap__contents__content--image')
+                  .section-all--index__wrap__contents__content--script
+                    .section-all--index__wrap__contents__content--script--user
+                      カテゴリ : 
+                        
+                    .section-all--index__wrap__contents__content--script--title
+                      = link_to "#{post.title}", post_path(post.id)
+                    .section-all--index__wrap__contents__content--script--text
+                      = truncate(post.text, length: 100)
+          - else
+            まだ投稿がありません
 
 .section-group
   .section-group__wrap
