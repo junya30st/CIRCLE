@@ -26,10 +26,10 @@
         width: 50%;
         padding: 8px;
         &--photo{
-          background: gray;
+          // background: gray;
           width: 30%;
           height: 100%;
-          border-radius: 50%;
+          // border-radius: 50%;
           margin: 0 auto;
         }
       }
@@ -40,11 +40,8 @@
         &--name{
           font-size: 20px;
           font-family: 'Oswald', sans-serif;;
-          float: left;
-          margin-right: 120px;
         }
         &--container {
-          float: left;
           text-align: center;
           // display: flex;
           // flex-flow: row wrap;
@@ -215,51 +212,56 @@
 //   flex-flow: row wrap;
 // }
 
-.container {
-  display: flex;
-  justify-content: center;
-  flex-flow: row wrap;
-  max-width: 500px;
-  margin: 2rem 0 0;
-  &:focus {
-    outline: none;
-  }
-  &__button--bop:active {
-    transform: translateY(3px);
-  }
-}
 
 
 
-.follow {
-  border: 4px solid #302f3a;
-  color: #ffffff;
-  position: relative;
-  padding: 5px 10px;
-  font-size: 1rem;
-  background-color: transparent;
-  cursor: pointer;
-  &::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 105%;
-    left: -.4rem;
-    top: -.4rem;
-    z-index: -1;
-    background-color: #302f3a;
-    transition: all 200ms ease-out;
-  }
-  &:hover::before {
-    top: 0;
-    left: 0;
-  }
-}
 
-.follow{
-  color: white;
-  z-index: 2;
-}
+
+// .container {
+//   display: flex;
+//   justify-content: center;
+//   flex-flow: row wrap;
+//   max-width: 500px;
+//   margin: 2rem 0 0;
+//   &:focus {
+//     outline: none;
+//   }
+//   &__button--bop:active {
+//     transform: translateY(3px);
+//   }
+// }
+
+
+
+// .follow {
+//   border: 4px solid #302f3a;
+//   color: #ffffff;
+//   position: relative;
+//   padding: 5px 10px;
+//   font-size: 1rem;
+//   background-color: transparent;
+//   cursor: pointer;
+//   &::before {
+//     content: '';
+//     position: absolute;
+//     width: 100%;
+//     height: 105%;
+//     left: -.4rem;
+//     top: -.4rem;
+//     z-index: -1;
+//     background-color: #302f3a;
+//     transition: all 200ms ease-out;
+//   }
+//   &:hover::before {
+//     top: 0;
+//     left: 0;
+//   }
+// }
+
+// .follow{
+//   color: white;
+//   z-index: 2;
+// }
 
 .my-image{
   background-color: gray;

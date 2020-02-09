@@ -1,2 +1,9 @@
-.chat-room__wrap--contents--message
-  = "#{message.user.nickname}：#{message.content}"
+= link_to user_path(message.user.id) do
+  .chat-room__wrap--contents--message
+    .chat-room__wrap--contents--message--image
+    - if message.user.image.present?
+      = image_tag "#{message.user.image}",class: "avater-chat"
+    - else
+      = image_tag("noImage.png", class: "avater-chat")
+    .chat-room__wrap--contents--message--content
+      = "：#{message.content}"

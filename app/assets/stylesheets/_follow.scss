@@ -1,0 +1,23 @@
+.follow{
+  margin-top: 10px;
+  display: flex;
+  &-count{
+    line-height: 16px;
+    margin-right: 4px;
+  }
+}
+
+.followed-count{
+  line-height: 16px;
+  margin: 0 4px;
+}
+
+.fa-user-minus{
+  margin: 0 10px;
+}
+
+.fa-user-plus{
+  margin: 0 10px;
+  line-height: 16px;
+}
+

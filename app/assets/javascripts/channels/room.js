@@ -10,6 +10,7 @@ $(function() {
     received: function(data) {
       // room_channel.rbでブロードキャストされたものがここに届く
       $('#messages').append(data['message']);
+      // ↓CSSでoverflow: scroll;を設定しているセレクタ（クラス）を設定
       $('.chat-room__wrap--contents').animate({scrollTop: $('.chat-room__wrap--contents')[0].scrollHeight});
       console.log('ok')
     },
