@@ -1,5 +1,12 @@
 - if Like.find_by(user_id: current_user.id, post_id: @post.id)
-  = link_to 'イイね!!をやめる', post_likes_path(post.id), method: :delete, remote: true
+  -# .good イイねをやめる
+  = link_to "/posts/#{post.id}/likes", method: :delete, remote: true do
+    .fas.fa-heart
+  .goodcount
+    = post.likes.length
 - else
-  = link_to 'イイね!!をする', post_likes_path(post.id), method: :post, remote: true
-
+  -# .nogood イイね
+  = link_to "/posts/#{post.id}/likes", method: :post, remote: true do
+    .far.fa-heart
+  .goodcount
+    = post.likes.length

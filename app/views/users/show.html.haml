@@ -17,16 +17,8 @@
         .wrap-mypage-main__profile__right
           .wrap-mypage-main__profile__right--name
             = @user.nickname
-          .wrap-mypage-main__profile__right--follow
-            //フォローしている人数
-          .wrap-mypage-main__profile__right--follower
-            //フォロワーの人数
-          .wrap-mypage-main__profile__right--container
-            .wrap-mypage-main__profile__right--container__button--bop
-              - if current_user.following?(@user)
-                = link_to 'フォロー外す', unfollow_path(@user.id), class: "follow", method: :delete
-              - else
-                = link_to 'フォローする', follow_path(@user.id), class: "follow",method: :POST
+          #follow.follow{id: @user.id}
+            = render "relationships/follow_button"
           .wrap-mypage-main__profile__right--introduce
             = @user.workplace
             
@@ -61,23 +53,23 @@
       .section-group__wrap__title--group 
         My - Group
     - @user.groups.each do |group|
-      .section-group__wrap__index
-        .section-group__wrap__index__contents
-          .section-group__wrap__index__contents__content
-            .section-group__wrap__index__contents__content--name
-              グループ名：
-              = group.name
-            .section-group__wrap__index__contents__content--category
-              開発
-
-          .section-group__wrap__index__contents--members
-            member：
-            - group.users.each do |g|
-              .section-group__wrap__index__contents--members--member
-              - if g.image.present?
-                = image_tag "#{g.image}", class: "avater"
-              - else
-                = image_tag("noImage.png", class: "avater")
+      = link_to group_path(group.id) do
+        .section-group__wrap__index
+          .section-group__wrap__index__contents
+            .section-group__wrap__index__contents__content
+              .section-group__wrap__index__contents__content--name
+                グループ名：
+                = group.name
+              .section-group__wrap__index__contents__content--category
+                開発
+            .section-group__wrap__index__contents--members
+              member：
+              - group.users.each do |g|
+                .section-group__wrap__index__contents--members--member
+                - if g.image.present?
+                  = image_tag "#{g.image}", class: "avater"
+                - else
+                  = image_tag("noImage.png", class: "avater")
 
 
 

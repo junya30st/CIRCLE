@@ -20,21 +20,23 @@ class User < ApplicationRecord
   #自分がフォローしているユーザーを簡単に取得する
   has_many :following_user, through: :follower, source: :followed
   #自分をフォローしているユーザーを簡単に取得する
-  has_many :foolower_user, through: :followed, source: :follower
+  has_many :follower_user, through: :followed, source: :follower
 
 
-  #フォローするメソッド
-  def follow(user_id)
-      follower.create(follow_id: user_id)
-  end
+  # #フォローするメソッド
+  # def follow(user_id)
+  #   follower.create(follow_id: user_id)
+  # end
 
-  #フォローを解除するメソッド
-  def unfollow(user_id)
-    follower.find_by(follow_id: user_id).destroy
-  end
+  # #フォローを解除するメソッド
+  # def unfollow(user_id)
+  #   follower.find_by(follow_id: user_id).destroy
+  # end
 
-  #フォローしているか確認するメソッド
-  def following?(user)
-    following_user.include?(user)
-  end
+  # #フォローしているか確認するメソッド
+  # def following?(user)
+  #   following_user.include?(user)
+  # end
+
+
 end
