@@ -3,8 +3,12 @@
   right: 0;
 }
 
-.fa-heart {
-  color: rgb(243, 124, 144);
+.far{
+  margin-right: 4px;
+}
+
+.fas.fa-thumbs-up {
+  color: rgb(39, 124, 235);
   animation: bound 1.2s linear 1;
   margin-right: 4px;
   @keyframes bound {

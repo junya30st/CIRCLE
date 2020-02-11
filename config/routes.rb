@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'posts#index'
-  resources :users
+  resources :users, only:[:show]
   resources :groups do
     resources :messages
   end

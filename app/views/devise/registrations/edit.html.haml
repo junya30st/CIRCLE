@@ -15,6 +15,10 @@
           %span{class:'form-must'} 
           = f.email_field :email, class:'signin-form', placeholder:'5文字以上(登録後に変更可能です)'
         .edit-wrapper__form--password
+          %label{class:'label-signin'} current_password
+          %br
+          = f.password_field :current_password, placeholder:'現在のパスワードを入力', class:'signin-form'
+        .edit-wrapper__form--password
           %label{class:'label-signin'} Password
           %br
           %span{class:'form-must'}
@@ -24,11 +28,6 @@
           %br
           %span{class:'form-must'}
           = f.password_field :password_confirmation, class:'signin-form', placeholder:'8文字以上(確認)'
-        .edit-wrapper__form--password
-          %label :current_password
-          %i (we need your current password to confirm your changes)
-          %br/
-          = f.password_field :current_password, autocomplete: "current-password", class:'signin-form'
       .edit-wrapper__add
         .edit-wrapper__add--image
           %label{class:'label-signin'} my-image
