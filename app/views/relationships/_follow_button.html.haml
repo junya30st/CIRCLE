@@ -7,9 +7,10 @@
     フォロワー：
   .followed-count
     = @user.follower_user.length
-  = link_to "/unfollow/#{@user.id}", method: :delete, remote: true do
-    .fas.fa-user-minus
-    -# %button フォローを外す
+  - unless current_user
+    = link_to "/unfollow/#{@user.id}", method: :delete, remote: true do
+      .fas.fa-user-minus
+      -# %button フォローを外す
 - else
   .follow-count
     フォロー：
@@ -19,6 +20,7 @@
     フォロワー：
   .followed-count
     = @user.follower_user.length
-  = link_to "/follow/#{@user.id}", method: :post, remote: true do
-    .fas.fa-user-plus
-    -# %button フォロー
+  - unless current_user
+    = link_to "/follow/#{@user.id}", method: :post, remote: true do
+      .fas.fa-user-plus
+      -# %button フォロー
