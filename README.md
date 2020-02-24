@@ -40,4 +40,4 @@
 * コミュニティの作成及び当該コミュニティへの参加要望とその許可機能
 
 # DB設計  
-https://gyazo.com/105ff9ff97089a48ebc93efff63297c9
+[![Image from Gyazo](https://i.gyazo.com/105ff9ff97089a48ebc93efff63297c9.png)](https://gyazo.com/105ff9ff97089a48ebc93efff63297c9)
