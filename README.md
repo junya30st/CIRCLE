@@ -1,6 +1,7 @@
 # 概要
 フリーランス向けの情報共有アプリ
- * テストアカウント  
+* URL:https://circlance.herokuapp.com/
+* テストアカウント  
   email:test123@gmail.com  
   password:12345678  
  
