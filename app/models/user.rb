@@ -3,12 +3,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
   mount_uploader :image, ImageUploader
   has_many :posts
   has_many :likes
-
   has_many :messages
-  
   has_many :group_users
   has_many :groups, through: :group_users
 
@@ -17,26 +16,13 @@ class User < ApplicationRecord
   #ユーザーとフォローされる人(followed)を結びつける
   has_many :followed, class_name: 'Relationship', foreign_key: 'follow_id'
 
-  #自分がフォローしているユーザーを簡単に取得する
+  #自分がフォローしているユーザーを取得する
   has_many :following_user, through: :follower, source: :followed
-  #自分をフォローしているユーザーを簡単に取得する
+  #自分をフォローしているユーザーを取得する
   has_many :follower_user, through: :followed, source: :follower
 
-
-  # #フォローするメソッド
-  # def follow(user_id)
-  #   follower.create(follow_id: user_id)
-  # end
-
-  # #フォローを解除するメソッド
-  # def unfollow(user_id)
-  #   follower.find_by(follow_id: user_id).destroy
-  # end
-
-  # #フォローしているか確認するメソッド
-  # def following?(user)
-  #   following_user.include?(user)
-  # end
-
+  validates :nickname, presence: true, length: { minimum: 4 }
+  validates :email, presence: true, uniqueness: true
+  validates :password, presence: true, length: { minimum: 6 }, format: { with:/\A[a-z0-9]+\z/i }
 
 end
