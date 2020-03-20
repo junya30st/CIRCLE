@@ -8,12 +8,12 @@
           %label{class:'label-signin'} Nickname
           %br
           %span{class:'form-must'} 
-          = f.text_field :nickname, class:'signin-form', placeholder:'5文字以上(登録後に変更可能です)'
+          = f.text_field :nickname, class:'signin-form', placeholder:'4文字以上'
         .edit-wrapper__form--email
           %label{class:'label-signin'} email
           %br
           %span{class:'form-must'} 
-          = f.email_field :email, class:'signin-form', placeholder:'5文字以上(登録後に変更可能です)'
+          = f.email_field :email, class:'signin-form', placeholder:'例）xxx@xxx.com'
         .edit-wrapper__form--password
           %label{class:'label-signin'} current_password
           %br
@@ -22,12 +22,12 @@
           %label{class:'label-signin'} Password
           %br
           %span{class:'form-must'}
-          = f.password_field :password, class:'signin-form', placeholder:'8文字以上'
+          = f.password_field :password, class:'signin-form', placeholder:'半角英数字6文字以上'
         .edit-wrapper__form--password
           %label{class:'label-signin'} Password
           %br
           %span{class:'form-must'}
-          = f.password_field :password_confirmation, class:'signin-form', placeholder:'8文字以上(確認)'
+          = f.password_field :password_confirmation, class:'signin-form', placeholder:'半角英数字6文字以上(確認)'
       .edit-wrapper__add
         .edit-wrapper__add--image
           %label{class:'label-signin'} my-image

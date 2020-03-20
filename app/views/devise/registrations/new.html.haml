@@ -8,7 +8,7 @@
         %label{class:'label-signin'} Nickname
         %br
         %span{class:'form-must'} 
-        = f.text_field :nickname, class:'signin-form', placeholder:'5文字以上(登録後に変更可能です)'
+        = f.text_field :nickname, class:'signin-form', placeholder:'4文字以上(登録後に変更可能です)'
       .signup-wrapper__form--email
         %label{class:'label-signin'} email
         %br
@@ -18,12 +18,12 @@
         %label{class:'label-signin'} Password
         %br
         %span{class:'form-must'}
-        = f.password_field :password, class:'signin-form', placeholder:'8文字以上'
+        = f.password_field :password, class:'signin-form', placeholder:'半角英数字6文字以上'
       .signup-wrapper__form--password
         %label{class:'label-signin'} Password
         %br
         %span{class:'form-must'}
-        = f.password_field :password_confirmation, class:'signin-form', placeholder:'8文字以上(確認)'
+        = f.password_field :password_confirmation, class:'signin-form', placeholder:'半角英数字8文字以上(確認)'
       .signup-wrapper__form--submit
         = f.submit '登録して進む', class: 'signin-button'
 
