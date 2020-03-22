@@ -6,22 +6,23 @@ describe User do
     # RSpecのみの場合
     # it 'nickname空欄の場合登録できない' do
     #   user = User.new(nickname: "", email: "aaa@gmail.com", password: "000000", password_confirmation: "000000")
+    #   # expect(user.save).to be_falsey
     #   user.valid?
-    #   expect(user.errors[:nickname]).to include("can't be blank")
+    #   expect(user.errors[:nickname]).to include("can't be blank", "is too short (minimum is 4 characters)")
     # end
 
     # factory_botを導入した場合
     # it 'nickname空欄の場合登録できない' do
     #   user = FactoryBot.build(:user, nickname: "")
     #   user.valid?
-    #   expect(user.errors[:nickname]).to include("can't be blank")
+    #   expect(user.errors[:nickname]).to include("can't be blank", "is too short (minimum is 4 characters)")
     # end
 
     # factory_botを導入し、且つrails_helper.rbに追記した場合
     it 'nickname空欄の場合登録できない' do
       user = build(:user, nickname: "" )
       user.valid?
-      expect(user.errors[:nickname]).to include("can't be blank")
+      expect(user.errors[:nickname]).to include("can't be blank", "is too short (minimum is 4 characters)")
     end
 
     it 'email空欄の場合登録できない' do
