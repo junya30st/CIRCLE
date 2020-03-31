@@ -15,7 +15,7 @@
               .section-all--index__wrap__contents__content
                 .section-all--index__wrap__contents__content--image
                   - if post.image.present?
-                    = image_tag "#{post.image}", class:'section-all--index__wrap__contents__content--image'
+                    = image_tag "#{post.image}", class:'section-all--index__wrap__contents__content--image', data:{id: post.id}
                   - else
                     = image_tag("noImage.png", class:'section-all--index__wrap__contents__content--image')
                 .section-all--index__wrap__contents__content--script
