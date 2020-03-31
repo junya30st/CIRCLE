@@ -1,7 +1,8 @@
 # FactoryBot.define do
 
 #   factory :group_user do
-#     group_id {"5"}
+#     association :user
+#     association :group
 #   end
 
 # end

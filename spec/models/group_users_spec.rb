@@ -1,13 +1,12 @@
 # require 'rails_helper'
 
-# describe Group_user do
+# describe GroupUser do
 #   describe '#create' do
-
-#     it 'group_idが空欄だと投稿できない' do
-#       group_user = build(:group_user, group_id: "")
-#       group_user.valid?
-#       expect(group_user.errors[:group_id]).to include("can't be blank")
+#     context 'can save' do
+#       it 'user_id, group_idがあれば登録できる' do
+#         group_user = build(:group_user)
+#         expect(group_user).to be_valid
+#       end
 #     end
-
 #   end
 # end

@@ -19,6 +19,15 @@ $(function(){
   });
 });
 
+// $(function() {
+//   $('.section-all--index__wrap__contents__content--image').hover(function(){
+//       $('.text').css('visibility','visible');
+//   },
+//     function(){
+//       $('.text').css('visibility','hidden');
+//     });
+// });
+
 $(document).ready(function() {
   $('.section-all--index__wrap__contents__content--image').error(function() {
       $(this).attr({

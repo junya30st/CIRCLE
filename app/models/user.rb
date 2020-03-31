@@ -23,6 +23,4 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true, length: { minimum: 4 }
   validates :email, presence: true, uniqueness: true
-  validates :password, presence: true, length: { minimum: 6 }, format: { with:/\A[a-z0-9]+\z/i }
-
 end

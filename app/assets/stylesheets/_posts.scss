@@ -120,12 +120,12 @@
             width: 100%;
             margin: 0 auto;
             transition: all 0.25s ease 0s;
+            position: relative;
           }
           &--image:hover{
             cursor: pointer;
             transform: scale(1.05, 1.05);
           }
-
           &--script{
             margin: 10px;
             &--user{
