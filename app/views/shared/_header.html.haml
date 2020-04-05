@@ -24,15 +24,17 @@
 -#       - else
 -#         = link_to 'sign-in', user_session_path, class: 'li header--menu__lists--list'
 
-.cp_cont
-  .cp_contents
+.header_menu
+  .header_menu--title
     %h1 
-    = link_to 'CIRCLance', root_path, class: "app-title"
-  .cp_offcm01
-    %input#cp_toggle01{ type: "checkbox" }/
-    %label{ for: "cp_toggle01" }
+    = link_to 'CIRCLE', root_path, class: "app-title"
+  .header_menu--contents
+    %input#menu_icon{ type: "checkbox" }/
+    %label{ for: "menu_icon" }
       %span
-    .cp_menu
+    .menu-text
+      MENU
+    .menu-content
       %ul
         %li
           = link_to "Group", groups_path

@@ -1,5 +1,4 @@
 .all
-  -# = flash.now[:notice]
   = render "shared/header"
 
   .section-all
@@ -7,7 +6,7 @@
       .section-all--index__title 
         .section-all--index__title--post What's new
         .section-all--index__title--new
-          = link_to '新規投稿', new_post_path,class:'new-post-link'
+          = link_to '投稿する', new_post_path,class:'new-post-link'
       .section-all--index__wrap
         %ul.section-all--index__wrap__contents
           - @posts.each do |post|
@@ -34,21 +33,6 @@
                     = truncate(post.text, length: 100)
         .paginate
           = paginate(@posts)
-
-      -# - @groups.each do |group|
-      -#   .section-group
-      -#     .section-group__title
-      -#       .section-group__title--group Group
-      -#     .section-group__wrap
-      -#       .section-group__wrap__contents
-      -#         .section-group__wrap__contents--name
-      -#           グループ名：
-      -#           = group.name
-      -#         .section-group__wrap__contents--category
-      -#           開発
-      -#         %br
-      -#         .section-group__wrap__contents--member
-      -#           member:
           
     .section-all__category
       .section-all__category__wrap

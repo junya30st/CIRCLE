@@ -1,4 +1,4 @@
-.section-group{
+.group-list{
   width: 100%;
   min-height: calc(100vh - 240px);
   &__title{
@@ -19,41 +19,92 @@
   &__index{
     width: 80%;
     margin: 0 auto;
-    padding: 30px 10px;
-    
-    &__contents{
-      width: 100%;
 
+    &__contents{
+      display: flex;
+      flex-wrap: wrap;
+      a{
+        width: 50%;
+        // border-bottom: 1px solid rgb(201, 201, 201);
+        padding: 15px 15px 0 15px;
+        position: relative;
+        &:after{
+          content: '';
+          position: absolute;
+          left: 50%;
+          bottom: -10px;
+          display: inline-block;
+          width: 95%;
+          height: 2px;
+          -moz-transform: translateX(-50%);
+          -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+          transform: translate(-50%);
+          background-color: #cfcfcf;
+        }
+      }
 
       &__content{
         
-        padding: 15px;
-        background: white;
-        font-size: 8px;
-
         &--name{
-          margin-right: 20px;
-          font-size: 16px;
-          float: left;
+          padding-bottom: 15px;
         }
+      }
+      &__members{
+        width: 100%;
+        display: flex;
+        border-bottom: 1px solid rgb(201, 201, 201);
 
-        &--category{
-          float: left;
-        }
+        &--member{
 
-        &--members{
-          float: left;
-          display: flex;
-          &--member{
-            letter-spacing: 1px;
-            padding-right: 10px;
-          }
         }
       }
     }
   }
+  // &__index{
+  //   width: 80%;
+  //   margin: 0 auto;
+  //   padding: 30px 10px;
+    
+  //   &__contents{
+  //     width: 100%;
+
+
+  //     &__content{
+        
+  //       padding: 15px 15px 0 15px;
+  //       background: white;
+  //       font-size: 8px;
+  //       border-bottom: 1px solid rgb(197, 197, 197);
+  //       min-height: 7vh;
+  //       &--name{
+  //         margin-right: 20px;
+  //         font-size: 16px;
+  //       }
+
+  //       &--category{
+  //       }
+
+  //       &--members{
+  //         float: left;
+  //         display: flex;
+  //         &--member{
+  //           letter-spacing: 1px;
+  //           padding-right: 10px;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 }
 
 .group-footer{
   bottom:0;
+}
+.member-avater{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
 }
