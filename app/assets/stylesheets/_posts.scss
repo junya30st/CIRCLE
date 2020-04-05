@@ -2,68 +2,68 @@
   height: 100%;
   width: 100vw;
 
-  .header{
-    width: 100vw;
-    // height: 120px;
-    height: 100vh;
-    justify-content: space-between;
-    display: flex;
-    background-image: url("top-header.jpg");
-    position: relative;
+  // .header{
+  //   width: 100vw;
+  //   // height: 120px;
+  //   height: 100vh;
+  //   justify-content: space-between;
+  //   display: flex;
+  //   background-image: url("top-header.jpg");
+  //   position: relative;
 
 
-    &::after{
-      content:'';
-      height: 100vh;
-      position: absolute;
-      background-color: rgba(255,255,255,.6);
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-    }
+  //   &::after{
+  //     content:'';
+  //     height: 100vh;
+  //     position: absolute;
+  //     background-color: rgba(255,255,255,.6);
+  //     left: 0;
+  //     right: 0;
+  //     top: 0;
+  //     bottom: 0;
+  //   }
 
-    &--logo{
-      position: relative;
-      font-family: 'Oswald', sans-serif;
-      letter-spacing: 20px;
-      font-size: 120px;
-      // margin: 30px 0 0 50px;
-      margin: auto;
-      z-index: 1;
-    }
+  //   &--logo{
+  //     position: relative;
+  //     font-family: 'Oswald', sans-serif;
+  //     letter-spacing: 20px;
+  //     font-size: 120px;
+  //     // margin: 30px 0 0 50px;
+  //     margin: auto;
+  //     z-index: 1;
+  //   }
 
-    &--menu{
-      position: absolute;
-      margin: 50px 30px 0 0;
-      z-index: 1;
-      &:hover{
-        display: none;
-      }
+  //   &--menu{
+  //     position: absolute;
+  //     margin: 50px 30px 0 0;
+  //     z-index: 1;
+  //     &:hover{
+  //       display: none;
+  //     }
       
-      &__lists{
-        // display: flex;
-        font-family: 'Dosis', sans-serif;
-        letter-spacing: 1px;
+  //     &__lists{
+  //       // display: flex;
+  //       font-family: 'Dosis', sans-serif;
+  //       letter-spacing: 1px;
         
         
 
-        &--list{
+  //       &--list{
           
-          font-size: 18px;
-          list-style: none;
-          margin-left: 15px;
-          padding: 10px;
-          // background: white;
-          color: black;
+  //         font-size: 18px;
+  //         list-style: none;
+  //         margin-left: 15px;
+  //         padding: 10px;
+  //         // background: white;
+  //         color: black;
 
-        }
-        &--list:hover{
-          opacity: 0.7;
-        }
-      }
-    }   
-  }
+  //       }
+  //       &--list:hover{
+  //         opacity: 0.7;
+  //       }
+  //     }
+  //   }   
+  // }
 }
 
 
@@ -259,17 +259,18 @@ text-decoration: none;
 color: inherit;
 }
 
-.cp_cont {
-  height: 65vh;
+// .cp_cont
+.header_menu {
+  height: 85vh;
   background-image: url("top-header.jpg");
   background-repeat: no-repeat;
   background-size: auto;
-  height: 100vh;
+  // height: 100vh;
   position: relative;
   display: flex;
   &::after{
     content:'';
-    height: 100vh;
+    // height: 100vh;
     position: absolute;
     background-color: rgba(255,255,255,.6);
     left: 0;
@@ -277,27 +278,34 @@ color: inherit;
     top: 0;
     bottom: 0;
   }
+  // .cp_contents
+  .header_menu--title {
+    position: absolute;
+    color: #333333;
+    top: 50%;
+    left: 50%;
+    transform: translate( -50%, -50%); 
+    z-index: 1000;
+    font-family: 'Oswald', sans-serif;
+    font-size: 120px;
+    letter-spacing: 20px;
+  }
 }
-
-.cp_contents {
-  color: #333333;
-  margin: auto;
-  font-family: 'Oswald', sans-serif;
-  font-size: 120px;
-  letter-spacing: 20px;
-  z-index: 1;
-}
-
-.cp_offcm01 {
+// .cp_offcm01
+.header_menu--contents {
 position: fixed;
 top: 20px;
 right: 20px;
 display: inline-block;
 z-index: 1;
+// .cp_text
+.menu-text{
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 2px;
+}
 
-
-
-.cp_menu {
+// .cp_menu
+.menu-content {
   position: fixed;
   top: 0;
   right: -100vw;
@@ -308,7 +316,6 @@ z-index: 1;
   transition: 0.53s transform;
   -webkit-transition-timing-function: cubic-bezier(0.38, 0.52, 0.23, 0.99);
   transition-timing-function: cubic-bezier(0.38, 0.52, 0.23, 0.99);
-  // background-color: black;
   opacity: 0.8;
 
   ul {
@@ -335,14 +342,19 @@ z-index: 1;
   }
 }
 
-#cp_toggle01 {
+#menu_icon {
   position: absolute;
   display: none;
   opacity: 0;
   
 
   &:checked {
-    ~ .cp_menu {
+    ~ .menu-text {
+      -webkit-transform: translateX(-100vw);
+      transform: translateX(-100vw);
+    }
+
+    ~ .menu-content {
       -webkit-transform: translateX(-100vw);
       transform: translateX(-100vw);
     }

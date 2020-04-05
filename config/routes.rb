@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'posts#index'
-  resources :users, only:[:show]
+  resources :users, only:[:index, :show]
   resources :groups do
     resources :messages
   end
   mount ActionCable.server => '/cable'
   resources :posts do
-    resources :likes , only: [:create]
+    resources :likes , only:[:create]
     collection do
       post 'user'
     end

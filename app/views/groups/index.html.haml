@@ -2,24 +2,25 @@
   = render "shared/header-mini"
 
 
-.section-group
-  .section-group__title
-    .section-group__title--group Group - list
-    .section-group__title--new
+.group-list
+  .group-list__title
+    .group-list__title--group Group - list
+    .group-list__title--new
       = link_to '新規作成', new_group_path
-  .section-group__index
-    .section-group__index__contents
+  .group-list__index
+    .group-list__index__contents
       - @groups.each do |group|
         = link_to group_path(group.id) do
-          .section-group__index__contents__content
-            .section-group__index__contents__content--name
+          .group-list__index__contents__content
+            .group-list__index__contents__content--name
               = group.name
-
-            .section-group__index__contents__content--members
-              - group.users.each do |g|
-                .section-group__index__contents__content--members--member
-                  = g.nickname
-              -# = group.users.nickname
+          .group-list__index__contents__members--member
+          - group.users.each do |g|
+            - if g.image.present?
+              = image_tag "#{g.image}", class: "member-avater"
+            - else
+              = image_tag("noImage.png", class: "member-avater")
+        -# = group.users.nickname
   
 .footer.group-footer
   = render "shared/footer"

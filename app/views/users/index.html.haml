@@ -1,0 +1,56 @@
+= render "shared/header"
+
+%section.whatis
+  .whatis__box
+    .whatis__box__text
+      WHAT IS CIRCLE?
+
+%section.pre-post
+  .pre-post__wrapper
+    .pre-post__wrapper--left
+      .pre-post__wrapper--left__box
+        = image_tag "circle1.jpeg", class:"pre-post-img"
+
+    .pre-post__wrapper--right
+      .pre-post__wrapper--right__box.reverse
+        %p.text
+          ご自身の経験を投稿する事ができます。
+          %br/
+          投稿した記事はユーザーに閲覧され、同じような境遇の人・これから同じような取り組みをする方にとって必ず有益なものになります。
+          また、自身の経験を積極的に書き込む事で、他の仕事につながるかもしれません。
+
+%section.pre-post
+  .pre-post__wrapper
+    .pre-post__wrapper--right
+      .pre-post__wrapper--right__box
+        %p.text
+          記事・ユーザーのお気に入り登録機能
+    .pre-post__wrapper--left
+      .pre-post__wrapper--left__box.reverse
+        = image_tag "blog.jpg", class:"pre-post-img"
+
+%section.pre-post
+  .pre-post__wrapper
+    .pre-post__wrapper--left
+      .pre-post__wrapper--left__box
+        = image_tag "circle1.jpeg", class:"pre-post-img"
+
+    .pre-post__wrapper--right
+      .pre-post__wrapper--right__box.reverse
+        %p.text
+          気になったユーザーがいたらチャット機能を使って会話する事もできます。
+          %br/
+          仕事についての相談や記事の内容についての質問、なんでもアクションを起こしてみましょう。
+
+%section.try
+  .try__box
+    .try__box__contents
+      .try__box__contents--left
+        = link_to posts_path do
+          記事をみてみる
+      .try__box__contents--right
+        = link_to new_user_registration_path do
+          登録して使ってみる
+
+
+= render "shared/footer"

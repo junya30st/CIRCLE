@@ -4,6 +4,11 @@ class PostsController < ApplicationController
     @posts = Post.includes(:user).order('id DESC').page(params[:page]).per(12)
     user = User.new(user_params)
     @category = Category.all
+    if user_signed_in?
+      render 'index'
+    else
+      render template: "users/index"
+    end
   end
 
   def new
