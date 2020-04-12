@@ -1,7 +1,7 @@
-# FactoryBot.define do
+FactoryBot.define do
 
-#   factory :group do
-#     name      {"グループ名"}
-#   end
+  factory :group do
+    name      {"グループ名"}
+  end
 
-# end
+end
