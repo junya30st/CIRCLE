@@ -1,8 +1,8 @@
-# FactoryBot.define do
+FactoryBot.define do
 
-#   factory :group_user do
-#     association :user
-#     association :group
-#   end
+  factory :group_user do
+    user
+    group
+  end
 
-# end
+end

@@ -17,7 +17,7 @@ describe UsersController, type: :controller do
       expect(response).to render_template :show
     end
 
-    # it "rassigns the requested tweet to @post" do
+    # it "assigns the requested tweet to @post" do
     #   user = create_list(:user, 2)
     #   post = create(:post)
     #   get :show

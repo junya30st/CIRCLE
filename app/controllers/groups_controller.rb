@@ -11,12 +11,11 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(group_params)
-    @group.save!
-    # if @group.save
-    #   redirect_to root_path, notice: 'グループが作成されました'
-    # else
-    #   render "groups/new"
-    # end
+    if @group.save
+      redirect_to groups_path, notice: 'グループが作成されました'
+    else
+      render "groups/new"
+    end
   end
 
   def show

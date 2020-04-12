@@ -1,6 +1,4 @@
 .group-create{
-  background-image: url(top-header);
-  background-size: cover;
   height: calc(100vh - 260px);
   text-align: center;
   position: relative;
@@ -17,7 +15,7 @@
   }
   &__wrapper{
     width: 80%;
-    padding-bottom: 20px;
+    padding: 20px;
     position: relative;
     z-index: 1;
     margin: 0 auto;
@@ -28,11 +26,15 @@
       border-bottom: 2px solid black;
     }
     &__form{
+      padding: 20px 0 20px;
       width: 42%;
       margin: 0 auto;
       &--name{
+        padding-bottom: 10px;
         &--label{}
-        &--input{}
+        &--input{
+          padding: 20px 0 20px;
+        }
       }
       &--member{}
       &--submit{}
@@ -42,4 +44,15 @@
 
 .newgroup-name{
   width: 100%;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.label-group{
+  font-family: 'Dosis', sans-serif;
+  font-size: 40px;
+}
+
+.member-name{
+  margin-right: 10px;
 }

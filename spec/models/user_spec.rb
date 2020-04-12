@@ -64,7 +64,7 @@ RSpec.describe User, type: :model do
 
         it 'email重複すると登録できない' do
           user = create(:user)
-          another_user = build(:user)
+          another_user = build(:user ,email: user.email)
           another_user.valid?
           expect(another_user.errors[:email]).to include("has already been taken")
         end
@@ -79,18 +79,6 @@ RSpec.describe User, type: :model do
           user = build(:user, password: "00000", password_confirmation: "00000")
           user.valid?
           expect(user.errors[:password]).to include("is too short (minimum is 6 characters)")
-        end
-
-        it 'パスワード半角英数字以外の場合登録できない' do
-          user = build(:user, password: "ああああああ", password_confirmation: "ああああああ")
-          user.valid?
-          expect(user.errors[:password]).to include("is invalid")
-        end
-
-        it 'パスワードに記号は使えない' do
-          user = build(:user, password: "!?!?!?", password_confirmation: "!?!?!?")
-          user.valid?
-          expect(user.errors[:password]).to include("is invalid")
         end
 
       end
