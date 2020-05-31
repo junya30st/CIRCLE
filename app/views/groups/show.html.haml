@@ -8,9 +8,10 @@
     .chat-room__wrap--contents
       #messages{'data-group_id':"#{@group.id}"}
         = render @messages
-    .chat-room__wrap--form
-      = label :content, 'Say something:'
-      = text_field :content, nil, data: { behavior: 'room_speaker' }, placeholder:" 入力後、Enterを押してください", class:"message-input"
+    - unless @GroupUser.user_id == current_user.id
+      .chat-room__wrap--form
+        = label :content, 'Say something:'
+        = text_field :content, nil, data: { behavior: 'room_speaker' }, placeholder:" 入力後、Enterを押してください", class:"message-input"
 
 .footer
   = render "shared/footer"
