@@ -22,9 +22,9 @@
                     .section-all--index__wrap__contents__content--script--user
                       投稿者 :
                       = post.user.nickname
-                  .section-all--index__wrap__contents__content--script--category
-                    カテゴリ :
-                    - post.categories.each do |c|
+                  - post.categories.each do |c|
+                    .section-all--index__wrap__contents__content--script--category
+                      •
                       = c.name
                       
                   .section-all--index__wrap__contents__content--script--title
